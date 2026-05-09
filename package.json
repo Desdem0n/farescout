@@ -1,0 +1,11 @@
+{
+  "name": "farescout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive live flight fare finder with provider, class, currency, and airport filtering.",
+  "type": "module",
+  "scripts": {
+    "check": "node --check server.js && node --check public/app.js",
+    "start": "node server.js"
+  }
+}

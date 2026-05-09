@@ -1,0 +1,465 @@
+:root {
+  --ink: #15171a;
+  --muted: #636b74;
+  --line: #d9dee5;
+  --paper: #f7f5f0;
+  --panel: #ffffff;
+  --accent: #166c6b;
+  --accent-strong: #0f4f4e;
+  --accent-soft: #e8f4f2;
+  --price: #8a4a12;
+  --focus: #d14f2a;
+  --warm: #d14f2a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(22, 108, 107, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(22, 108, 107, 0.08), transparent 38%),
+    linear-gradient(225deg, rgba(209, 79, 42, 0.10), transparent 30%),
+    var(--paper);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.search-panel,
+.results-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 222, 229, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(21, 23, 26, 0.08);
+}
+
+.search-panel {
+  align-self: start;
+  padding: 18px;
+}
+
+.brand-header {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border: 3px solid var(--warm);
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(22, 108, 107, 0.26);
+  font-size: 1.05rem;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.panel-heading p,
+.toolbar p {
+  margin: 0 0 6px;
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 17ch;
+  font-size: clamp(1.55rem, 6.5vw, 2.15rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+.flight-form {
+  display: grid;
+  gap: 13px;
+  margin-top: 20px;
+}
+
+.search-submit {
+  order: 100;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 12px;
+  color: var(--ink);
+  background-color: #fff;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+
+select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 19px,
+    calc(100% - 12px) 19px;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+input[type="date"],
+select {
+  text-transform: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(209, 79, 42, 0.14);
+}
+
+.route-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.icon-button {
+  min-height: 48px;
+  width: 100%;
+  padding: 0;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.icon-button:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
+.toggle {
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  color: var(--ink);
+}
+
+.toggle input {
+  min-height: auto;
+  width: 18px;
+  height: 18px;
+}
+
+button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 16px;
+  color: #fff;
+  background: var(--accent);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.search-submit {
+  min-height: 52px;
+  background:
+    linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 12px 28px rgba(22, 108, 107, 0.2);
+  font-size: 1.02rem;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.results-panel {
+  min-height: 320px;
+  padding: 18px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+#clear-button {
+  min-height: 38px;
+  color: var(--accent);
+  background: #eaf3f2;
+}
+
+.results {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.search-window {
+  padding: 10px 12px;
+  color: var(--accent-strong);
+  background: #eaf3f2;
+  border: 1px solid rgba(22, 108, 107, 0.18);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.empty-state,
+.error-state {
+  min-height: 240px;
+  place-items: center;
+  padding: 28px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.error-state {
+  color: #9d2d1f;
+  border-color: rgba(157, 45, 31, 0.35);
+  background: rgba(157, 45, 31, 0.06);
+}
+
+.error-state strong {
+  max-width: 560px;
+  font-weight: 800;
+}
+
+.error-state span {
+  max-width: 560px;
+  color: #6f3129;
+}
+
+.offer-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cheapest-offer {
+  border-color: rgba(22, 108, 107, 0.55);
+  background: #f1fbf8;
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.price {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.price strong {
+  color: var(--ink);
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.cheapest-offer .price strong {
+  color: var(--price);
+}
+
+.price em {
+  justify-self: start;
+  padding: 4px 8px;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.price span,
+.segment-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.itinerary {
+  display: grid;
+  gap: 10px;
+}
+
+.itinerary + .itinerary {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.route-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  font-weight: 800;
+}
+
+.route-line span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.segment {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.airport {
+  font-weight: 900;
+}
+
+.time {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.arrow {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+
+@media (min-width: 680px) {
+  .app-shell {
+    width: min(1180px, calc(100% - 40px));
+    padding: 24px 0;
+  }
+
+  .search-panel,
+  .results-panel {
+    padding: 24px;
+  }
+
+  .flight-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .route-fields,
+  .toggle,
+  .flight-form > button {
+    grid-column: 1 / -1;
+  }
+
+  .route-fields {
+    grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr);
+    align-items: end;
+  }
+
+  .icon-button {
+    width: 46px;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .offer-card {
+    grid-template-columns: minmax(130px, 180px) 1fr;
+  }
+
+  .segment {
+    grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
+    align-items: center;
+  }
+
+  .arrow {
+    width: 46px;
+    min-width: 46px;
+  }
+}
+
+@media (min-width: 980px) {
+  .app-shell {
+    grid-template-columns: minmax(440px, 500px) minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .search-panel {
+    position: sticky;
+    top: 24px;
+  }
+
+  h1 {
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 3vw, 2.9rem);
+  }
+}

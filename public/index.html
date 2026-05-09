@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FareScout</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="search-panel" aria-labelledby="search-title">
+        <div class="brand-header">
+          <div class="logo-mark" aria-hidden="true">FS</div>
+          <div class="panel-heading">
+            <p>FareScout</p>
+            <h1 id="search-title">Find the fare worth catching</h1>
+          </div>
+        </div>
+
+        <form id="flight-form" class="flight-form">
+          <div class="route-fields">
+            <label>
+              From
+              <input name="origin" maxlength="3" value="WAW" list="airport-options" autocomplete="off" required>
+            </label>
+            <button id="swap-route" class="icon-button" type="button" aria-label="Swap origin and destination" title="Swap route">⇄</button>
+            <label>
+              To
+              <select name="destination" required></select>
+            </label>
+          </div>
+          <label>
+            Destination country
+            <select id="destination-country" name="destinationCountry" required></select>
+          </label>
+          <label>
+            Departure
+            <input name="departureDate" type="date" required>
+          </label>
+          <label>
+            Return
+            <input name="returnDate" type="date">
+          </label>
+          <label>
+            Adults
+            <input name="adults" type="number" min="1" max="9" value="1" required>
+          </label>
+          <label>
+            Currency
+            <select name="market" required>
+              <option value="PL">PLN · Poland</option>
+              <option value="GB">GBP · United Kingdom</option>
+              <option value="US">USD · United States</option>
+              <option value="DE">EUR · Germany</option>
+              <option value="FR">EUR · France</option>
+              <option value="ES">EUR · Spain</option>
+              <option value="IT">EUR · Italy</option>
+              <option value="NL">EUR · Netherlands</option>
+              <option value="CZ">CZK · Czech Republic</option>
+              <option value="CH">CHF · Switzerland</option>
+              <option value="SE">SEK · Sweden</option>
+              <option value="NO">NOK · Norway</option>
+              <option value="DK">DKK · Denmark</option>
+              <option value="CA">CAD · Canada</option>
+              <option value="JP">JPY · Japan</option>
+              <option value="AU">AUD · Australia</option>
+            </select>
+          </label>
+          <label>
+            Provider
+            <select name="provider">
+              <option value="ALL">All providers</option>
+              <option value="W6">Wizz Air</option>
+              <option value="W4">Wizz Air Malta</option>
+              <option value="LO">LOT Polish Airlines</option>
+              <option value="FR">Ryanair</option>
+              <option value="BA">British Airways</option>
+              <option value="LH">Lufthansa</option>
+              <option value="LX">SWISS</option>
+              <option value="OS">Austrian Airlines</option>
+              <option value="KL">KLM</option>
+              <option value="AF">Air France</option>
+              <option value="AY">Finnair</option>
+              <option value="SK">SAS</option>
+              <option value="DY">Norwegian</option>
+              <option value="U2">easyJet</option>
+              <option value="TP">TAP Air Portugal</option>
+              <option value="IB">Iberia</option>
+              <option value="VY">Vueling</option>
+              <option value="EW">Eurowings</option>
+              <option value="TK">Turkish Airlines</option>
+              <option value="EK">Emirates</option>
+              <option value="QR">Qatar Airways</option>
+              <option value="UA">United Airlines</option>
+              <option value="AA">American Airlines</option>
+              <option value="DL">Delta Air Lines</option>
+              <option value="AC">Air Canada</option>
+            </select>
+          </label>
+          <label>
+            Flight class
+            <select name="cabinClass" required>
+              <option value="economy">Economy</option>
+              <option value="premium_economy">Premium economy</option>
+              <option value="business">Business</option>
+              <option value="first">First</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input name="nonStop" type="checkbox">
+            <span>Nonstop only</span>
+          </label>
+          <button class="search-submit" type="submit">Search fares</button>
+        </form>
+
+        <datalist id="airport-options">
+          <option value="WAW">Warsaw Chopin, Poland</option>
+          <option value="WMI">Warsaw Modlin, Poland</option>
+          <option value="RDO">Warsaw Radom, Poland</option>
+          <option value="KRK">Krakow, Poland</option>
+          <option value="GDN">Gdansk, Poland</option>
+          <option value="KTW">Katowice, Poland</option>
+          <option value="WRO">Wroclaw, Poland</option>
+          <option value="POZ">Poznan, Poland</option>
+          <option value="RZE">Rzeszow, Poland</option>
+          <option value="SZZ">Szczecin, Poland</option>
+          <option value="LHR">London Heathrow, UK</option>
+          <option value="LGW">London Gatwick, UK</option>
+          <option value="LTN">London Luton, UK</option>
+          <option value="STN">London Stansted, UK</option>
+          <option value="LCY">London City, UK</option>
+          <option value="SEN">London Southend, UK</option>
+          <option value="MAN">Manchester, UK</option>
+          <option value="BHX">Birmingham, UK</option>
+          <option value="EDI">Edinburgh, UK</option>
+          <option value="GLA">Glasgow, UK</option>
+          <option value="LPL">Liverpool, UK</option>
+          <option value="BRS">Bristol, UK</option>
+          <option value="CDG">Paris Charles de Gaulle, France</option>
+          <option value="ORY">Paris Orly, France</option>
+          <option value="BVA">Paris Beauvais, France</option>
+          <option value="AMS">Amsterdam, Netherlands</option>
+          <option value="FRA">Frankfurt, Germany</option>
+          <option value="MUC">Munich, Germany</option>
+          <option value="BER">Berlin Brandenburg, Germany</option>
+          <option value="DUS">Dusseldorf, Germany</option>
+          <option value="HAM">Hamburg, Germany</option>
+          <option value="CGN">Cologne Bonn, Germany</option>
+          <option value="STR">Stuttgart, Germany</option>
+          <option value="DTM">Dortmund, Germany</option>
+          <option value="NUE">Nuremberg, Germany</option>
+          <option value="HHN">Frankfurt Hahn, Germany</option>
+          <option value="VIE">Vienna, Austria</option>
+          <option value="ZRH">Zurich, Switzerland</option>
+          <option value="PRG">Prague, Czech Republic</option>
+          <option value="BUD">Budapest, Hungary</option>
+          <option value="CPH">Copenhagen, Denmark</option>
+          <option value="ARN">Stockholm Arlanda, Sweden</option>
+          <option value="OSL">Oslo, Norway</option>
+          <option value="HEL">Helsinki, Finland</option>
+          <option value="BRU">Brussels, Belgium</option>
+          <option value="DUB">Dublin, Ireland</option>
+          <option value="MAD">Madrid, Spain</option>
+          <option value="BCN">Barcelona, Spain</option>
+          <option value="AGP">Malaga, Spain</option>
+          <option value="ALC">Alicante, Spain</option>
+          <option value="VLC">Valencia, Spain</option>
+          <option value="SVQ">Seville, Spain</option>
+          <option value="PMI">Palma de Mallorca, Spain</option>
+          <option value="IBZ">Ibiza, Spain</option>
+          <option value="TFS">Tenerife South, Spain</option>
+          <option value="LPA">Gran Canaria, Spain</option>
+          <option value="FCO">Rome Fiumicino, Italy</option>
+          <option value="CIA">Rome Ciampino, Italy</option>
+          <option value="MXP">Milan Malpensa, Italy</option>
+          <option value="BGY">Milan Bergamo, Italy</option>
+          <option value="VCE">Venice, Italy</option>
+          <option value="NAP">Naples, Italy</option>
+          <option value="BLQ">Bologna, Italy</option>
+          <option value="ATH">Athens, Greece</option>
+          <option value="LIS">Lisbon, Portugal</option>
+          <option value="OPO">Porto, Portugal</option>
+          <option value="FAO">Faro, Portugal</option>
+          <option value="FNC">Madeira, Portugal</option>
+          <option value="IST">Istanbul, Turkey</option>
+          <option value="DXB">Dubai, UAE</option>
+          <option value="DOH">Doha, Qatar</option>
+          <option value="TLV">Tel Aviv, Israel</option>
+          <option value="JFK">New York JFK, USA</option>
+          <option value="EWR">Newark, USA</option>
+          <option value="BOS">Boston, USA</option>
+          <option value="ORD">Chicago O'Hare, USA</option>
+          <option value="IAD">Washington Dulles, USA</option>
+          <option value="MIA">Miami, USA</option>
+          <option value="LAX">Los Angeles, USA</option>
+          <option value="SFO">San Francisco, USA</option>
+          <option value="SEA">Seattle, USA</option>
+          <option value="ATL">Atlanta, USA</option>
+          <option value="DFW">Dallas Fort Worth, USA</option>
+          <option value="DEN">Denver, USA</option>
+          <option value="LAS">Las Vegas, USA</option>
+          <option value="MCO">Orlando, USA</option>
+          <option value="YYZ">Toronto Pearson, Canada</option>
+          <option value="YUL">Montreal, Canada</option>
+        </datalist>
+      </section>
+
+      <section class="results-panel" aria-live="polite">
+        <div class="toolbar">
+          <div>
+            <p id="status-label">Ready</p>
+            <h2 id="result-title">Cheapest fares will appear here</h2>
+          </div>
+          <button id="clear-button" type="button" aria-label="Clear results">Clear</button>
+        </div>
+        <div id="results" class="results empty-state">
+          Enter airport codes and dates to compare live offers from the API.
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
