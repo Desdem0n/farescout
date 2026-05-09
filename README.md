@@ -1,10 +1,21 @@
 # FareScout
 
-FareScout is a responsive flight fare finder that searches live fares through the Ignav API and highlights the cheapest result while keeping every returned price visible.
+[![Project check](https://github.com/Desdem0n/farescout/actions/workflows/check.yml/badge.svg)](https://github.com/Desdem0n/farescout/actions/workflows/check.yml)
 
-The app was built as a portfolio-ready full-stack project: a static mobile-first frontend, a lightweight Node backend, secure API-key handling through `.env`, and real third-party API integration.
+FareScout is a responsive full-stack flight fare finder that searches live fares through the Ignav API, compares results across a full departure day, and highlights the cheapest returned offer without hiding the rest.
+
+I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node backend, secure API-key handling, real third-party API integration, defensive validation, and product documentation that explains where the MVP can grow next.
 
 ![FareScout desktop search](docs/screenshots/desktop-search.png)
+
+## Recruiter Snapshot
+
+- Built a live API-backed search app from a blank repo to public GitHub-ready MVP.
+- Designed the backend as a secure proxy so the API key never reaches the browser.
+- Normalized third-party flight data into a predictable UI contract.
+- Added filters for airport, country, provider, cabin class, market/currency, passengers, and nonstop preference.
+- Documented product requirements, testing, deployment, and SaaS roadmap.
+- Kept the runtime dependency-free so the project is easy to inspect and run.
 
 ## Features
 
@@ -78,10 +89,12 @@ node --check public/app.js
 
 ## Project Docs
 
+- [Case Study](./docs/CASE_STUDY.md)
 - [Product Requirements](./PRD.md)
 - [Testing Checklist](./TESTING.md)
 - [Deployment Notes](./DEPLOYMENT.md)
 - [Roadmap](./ROADMAP.md)
+- [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 
 ## API Notes
 
@@ -98,6 +111,7 @@ node --check public/app.js
 - Mobile-first product UI.
 - Filtering, sorting, and cheapest-result highlighting.
 - Employer-friendly documentation and product thinking.
+- CI-friendly project structure with a simple automated syntax check.
 
 ## Roadmap
 
