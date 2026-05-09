@@ -4,6 +4,8 @@ FareScout is a responsive flight fare finder that searches live fares through th
 
 The app was built as a portfolio-ready full-stack project: a static mobile-first frontend, a lightweight Node backend, secure API-key handling through `.env`, and real third-party API integration.
 
+![FareScout desktop search](docs/screenshots/desktop-search.png)
+
 ## Features
 
 - Live fare search through the Ignav API.
@@ -74,6 +76,13 @@ node --check server.js
 node --check public/app.js
 ```
 
+## Project Docs
+
+- [Product Requirements](./PRD.md)
+- [Testing Checklist](./TESTING.md)
+- [Deployment Notes](./DEPLOYMENT.md)
+- [Roadmap](./ROADMAP.md)
+
 ## API Notes
 
 - Ignav expects airport codes, not city codes. Use `LHR`, `LTN`, or `STN` instead of `LON`.
@@ -92,7 +101,6 @@ node --check public/app.js
 
 ## Roadmap
 
-- Add screenshots to `docs/screenshots`.
 - Add saved searches.
 - Add price-drop alerts.
 - Add historical price tracking.

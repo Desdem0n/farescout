@@ -157,6 +157,7 @@ const airportsByCountry = {
 populateCountries();
 populateDestinationAirports("GB", "LHR");
 setDefaultDate();
+applyUrlSearchParams();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -417,6 +418,38 @@ function setDefaultDate() {
   const date = new Date();
   date.setDate(date.getDate() + 30);
   input.value = date.toISOString().slice(0, 10);
+}
+
+function applyUrlSearchParams() {
+  const params = new URLSearchParams(window.location.search);
+  const origin = params.get("origin");
+  const destination = params.get("destination");
+  const destinationCountryParam = params.get("destinationCountry");
+  const fields = ["departureDate", "returnDate", "adults", "market", "provider", "cabinClass"];
+
+  if (origin) form.elements.origin.value = origin.toUpperCase();
+
+  if (destinationCountryParam) {
+    const country = destinationCountryParam.toUpperCase();
+    populateDestinationAirports(country, destination?.toUpperCase() || "");
+  } else if (destination) {
+    selectDestinationAirport(destination.toUpperCase());
+  }
+
+  fields.forEach((field) => {
+    const value = params.get(field);
+    if (value && form.elements[field]) {
+      form.elements[field].value = value;
+    }
+  });
+
+  if (params.get("nonStop") === "true") {
+    form.elements.nonStop.checked = true;
+  }
+
+  if (params.get("search") === "1") {
+    window.setTimeout(() => form.requestSubmit(), 250);
+  }
 }
 
 function escapeHtml(value) {
