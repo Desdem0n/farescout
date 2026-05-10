@@ -32,7 +32,7 @@ FareScout Founder Pilot
 Manual onboarding
 Up to 5 monitored routes
 Email-based price-drop updates
-19 PLN pilot price
+Founding-user pilot from 19 PLN
 ```
 
 What the buyer gets:
@@ -57,6 +57,7 @@ The public demo should contain:
 - live manual search
 - beta waitlist
 - founder pilot inquiry
+- pricing signal framed as "from 19 PLN", not as automatic checkout
 
 It should not contain:
 

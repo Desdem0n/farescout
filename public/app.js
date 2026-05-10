@@ -304,11 +304,11 @@ pilotForm.addEventListener("submit", (event) => {
 
   const subject = encodeURIComponent("FareScout founder pilot request");
   const body = encodeURIComponent([
-    "Hi, I am interested in a FareScout founder pilot license.",
+    "Hi, I am interested in FareScout founder pilot access.",
     "",
     `Email: ${email}`,
     `Routes to monitor: ${routes}`,
-    `Pilot budget: ${budget}`,
+    `Pilot interest: ${budget}`,
     "",
     "Please send me details about the 30-day monitored route pilot."
   ].join("\n"));
