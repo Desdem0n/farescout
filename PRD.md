@@ -24,6 +24,7 @@ For a technical portfolio, the project also needs to show practical product judg
 - Search live flight fares through a real API.
 - Keep API credentials secure on the backend.
 - Make route selection intuitive through country and airport pickers.
+- Provide quick presets for common Warsaw routes so first-time users can search faster.
 - Show all returned prices while clearly marking the cheapest fare.
 - Support airline/provider, flight class, currency/market, nonstop, and date filters.
 - Provide a clean mobile-first interface.
@@ -62,6 +63,7 @@ For a technical portfolio, the project also needs to show practical product judg
   - airline/provider
   - cabin class
   - nonstop preference
+- The UI must provide quick route presets for common Warsaw departures.
 - The app must sort returned fares by total price ascending.
 - The app must highlight only the cheapest returned fare.
 - The app must show all returned fares.

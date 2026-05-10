@@ -5,6 +5,42 @@ const resultTitle = document.querySelector("#result-title");
 const clearButton = document.querySelector("#clear-button");
 const swapRouteButton = document.querySelector("#swap-route");
 const destinationCountry = document.querySelector("#destination-country");
+const routePresetButtons = document.querySelectorAll("[data-route-preset]");
+
+const routePresets = {
+  london: {
+    origin: "WAW",
+    destinationCountry: "GB",
+    destination: "LTN",
+    market: "PL",
+    provider: "W6",
+    cabinClass: "economy"
+  },
+  barcelona: {
+    origin: "WAW",
+    destinationCountry: "ES",
+    destination: "BCN",
+    market: "PL",
+    provider: "ALL",
+    cabinClass: "economy"
+  },
+  lisbon: {
+    origin: "WAW",
+    destinationCountry: "PT",
+    destination: "LIS",
+    market: "PL",
+    provider: "TP",
+    cabinClass: "economy"
+  },
+  "new-york": {
+    origin: "WAW",
+    destinationCountry: "US",
+    destination: "JFK",
+    market: "US",
+    provider: "ALL",
+    cabinClass: "economy"
+  }
+};
 
 const airportsByCountry = {
   PL: {
@@ -212,7 +248,16 @@ swapRouteButton.addEventListener("click", () => {
 
 destinationCountry.addEventListener("change", () => {
   populateDestinationAirports(destinationCountry.value);
+  syncActiveRoutePreset();
 });
+
+routePresetButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyRoutePreset(button.dataset.routePreset);
+  });
+});
+
+form.addEventListener("change", syncActiveRoutePreset);
 
 function renderOffers(payload) {
   results.className = "results";
@@ -268,6 +313,37 @@ function selectDestinationAirport(airportCode) {
   }
 
   form.elements.destination.value = airportCode;
+}
+
+function applyRoutePreset(presetName) {
+  const preset = routePresets[presetName];
+  if (!preset) return;
+
+  form.elements.origin.value = preset.origin;
+  populateDestinationAirports(preset.destinationCountry, preset.destination);
+  form.elements.market.value = preset.market;
+  form.elements.provider.value = preset.provider;
+  form.elements.cabinClass.value = preset.cabinClass;
+  form.elements.nonStop.checked = false;
+
+  routePresetButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.routePreset === presetName);
+  });
+}
+
+function syncActiveRoutePreset() {
+  const activePreset = Object.entries(routePresets).find(([, preset]) =>
+    form.elements.origin.value.toUpperCase() === preset.origin
+      && form.elements.destination.value === preset.destination
+      && form.elements.destinationCountry.value === preset.destinationCountry
+      && form.elements.market.value === preset.market
+      && form.elements.provider.value === preset.provider
+      && form.elements.cabinClass.value === preset.cabinClass
+  )?.[0];
+
+  routePresetButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.routePreset === activePreset);
+  });
 }
 
 function findCountryForAirport(airportCode) {
@@ -446,6 +522,8 @@ function applyUrlSearchParams() {
   if (params.get("nonStop") === "true") {
     form.elements.nonStop.checked = true;
   }
+
+  syncActiveRoutePreset();
 
   if (params.get("search") === "1") {
     window.setTimeout(() => form.requestSubmit(), 250);

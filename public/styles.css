@@ -66,19 +66,13 @@ select {
 }
 
 .logo-mark {
-  display: grid;
-  place-items: center;
   width: 64px;
   height: 64px;
-  color: #fff;
-  background:
-    linear-gradient(135deg, var(--accent), var(--accent-strong));
-  border: 3px solid var(--warm);
+  display: block;
+  object-fit: cover;
+  background: #fffaf3;
   border-radius: 8px;
-  box-shadow: 0 14px 30px rgba(22, 108, 107, 0.26);
-  font-size: 1.05rem;
-  font-weight: 950;
-  letter-spacing: 0;
+  box-shadow: 0 14px 30px rgba(22, 108, 107, 0.22);
 }
 
 .panel-heading p,
@@ -112,6 +106,29 @@ h2 {
   display: grid;
   gap: 13px;
   margin-top: 20px;
+}
+
+.quick-routes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.quick-routes button {
+  min-height: 40px;
+  padding: 0 10px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid rgba(22, 108, 107, 0.14);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.quick-routes button:hover,
+.quick-routes button.active {
+  color: #fff;
+  background: var(--accent);
 }
 
 .search-submit {
@@ -416,6 +433,10 @@ button:disabled {
   .toggle,
   .flight-form > button {
     grid-column: 1 / -1;
+  }
+
+  .quick-routes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .route-fields {

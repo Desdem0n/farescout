@@ -4,18 +4,29 @@
     <meta charset="utf-8">
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FareScout compares live flight fares and highlights the cheapest returned offer.">
+    <meta name="theme-color" content="#166c6b">
     <title>FareScout</title>
+    <link rel="icon" type="image/png" href="/assets/farescout-logo.png">
+    <link rel="apple-touch-icon" href="/assets/farescout-logo.png">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <main class="app-shell">
       <section class="search-panel" aria-labelledby="search-title">
         <div class="brand-header">
-          <div class="logo-mark" aria-hidden="true">FS</div>
+          <img class="logo-mark" src="/assets/farescout-logo.png" alt="FareScout logo">
           <div class="panel-heading">
             <p>FareScout</p>
             <h1 id="search-title">Find the fare worth catching</h1>
           </div>
+        </div>
+
+        <div class="quick-routes" aria-label="Popular routes from Warsaw">
+          <button type="button" data-route-preset="london">London Luton</button>
+          <button type="button" data-route-preset="barcelona">Barcelona</button>
+          <button type="button" data-route-preset="lisbon">Lisbon</button>
+          <button type="button" data-route-preset="new-york">New York</button>
         </div>
 
         <form id="flight-form" class="flight-form">
