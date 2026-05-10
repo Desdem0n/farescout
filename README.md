@@ -4,7 +4,7 @@
 
 FareScout is a responsive full-stack flight fare finder that searches live fares through the Ignav API, compares results across a full departure day, and highlights the cheapest returned offer without hiding the rest.
 
-Live demo: deployment-ready, URL to be added after Render setup.
+Live demo: [https://farescout.onrender.com](https://farescout.onrender.com)
 
 I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node backend, secure API-key handling, real third-party API integration, defensive validation, and product documentation that explains where the MVP can grow next.
 

@@ -8,6 +8,7 @@ I build practical web applications with a product mindset: clear user flows, res
 
 Live flight fare finder built with Node.js, vanilla JavaScript, and the Ignav API.
 
+- Demo: https://farescout.onrender.com
 - Searches real flight fares through a backend API proxy.
 - Keeps API credentials private with server-side `.env` configuration.
 - Supports airport, country, provider, cabin class, currency, passenger, date, and nonstop filters.

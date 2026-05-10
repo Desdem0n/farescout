@@ -4,6 +4,8 @@
 
 FareScout is a full-stack flight fare finder built around a practical user goal: compare live fares quickly, keep every returned price visible, and make the cheapest offer obvious.
 
+Live demo: https://farescout.onrender.com
+
 The project started as a simple API-backed search form and grew into a portfolio-ready MVP with a responsive interface, secure backend proxy, route/provider filters, product documentation, and a SaaS direction.
 
 ## Problem

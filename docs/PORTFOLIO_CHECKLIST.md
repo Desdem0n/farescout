@@ -24,7 +24,7 @@ Use this checklist before sharing FareScout with recruiters or potential employe
 - Keep the case study visible from the README.
 - Confirm GitHub Actions check is passing.
 - Confirm `.env` is ignored.
-- Add a public demo URL after deployment.
+- Public demo URL: https://farescout.onrender.com
 
 ## Public Demo
 

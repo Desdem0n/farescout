@@ -4,6 +4,8 @@
 
 Launch FareScout as a public demo that attracts early users, recruiter attention, and paid-pilot leads without exposing private SaaS logic.
 
+Live demo: [https://farescout.onrender.com](https://farescout.onrender.com)
+
 ## Public Message
 
 **Stop checking the same flight prices manually. FareScout finds live fares now and is preparing monitored price-drop alerts next.**
@@ -41,7 +43,7 @@ It now includes US-friendly route presets like NYC -> Miami, LA -> Las Vegas, Ch
 Next step: monitored price-drop alerts.
 
 Try the demo and submit one route you want watched:
-[DEMO_URL]
+https://farescout.onrender.com
 
 #traveltech #indiehackers #buildinpublic #flights
 ```
@@ -56,7 +58,7 @@ The public demo now searches live API-backed fares, supports provider/cabin/curr
 The commercial version will focus on monitored price-drop alerts: choose a route, set a target fare, and get notified when it becomes worth booking.
 
 Try the demo and tell me which route you would want monitored:
-[DEMO_URL]
+https://farescout.onrender.com
 ```
 
 ## Facebook Travel Group Post
@@ -69,7 +71,7 @@ It currently works as a live demo: choose a route, date, airline/provider, cabin
 I am collecting early feedback: which route would you want monitored automatically?
 
 Demo:
-[DEMO_URL]
+https://farescout.onrender.com
 ```
 
 ## TikTok / Reels Caption

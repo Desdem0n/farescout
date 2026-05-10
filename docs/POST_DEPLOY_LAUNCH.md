@@ -2,6 +2,8 @@
 
 Use this immediately after Render creates the public app URL.
 
+Live demo: [https://farescout.onrender.com](https://farescout.onrender.com)
+
 ## 1. Smoke Test
 
 - Open the app URL.
@@ -13,7 +15,13 @@ Use this immediately after Render creates the public app URL.
 
 ## 2. Update Links
 
-Replace `DEMO_URL` with the real Render URL in:
+The real Render URL is:
+
+```text
+https://farescout.onrender.com
+```
+
+Confirm it is present in:
 
 - `README.md`
 - `DEPLOYMENT.md`

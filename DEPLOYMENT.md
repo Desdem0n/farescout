@@ -2,6 +2,8 @@
 
 FareScout needs a backend because the Ignav API key must stay private. Static-only hosting is not enough.
 
+Live deployment: [https://farescout.onrender.com](https://farescout.onrender.com)
+
 ## Recommended Hosts
 
 - Render
@@ -87,10 +89,10 @@ API responses are not cached. Static logo assets can be cached by the browser.
 
 Add the live URL to:
 
-- `README.md`
-- `docs/PORTFOLIO_CHECKLIST.md`
-- `docs/GLOBAL_LAUNCH.md`
-- the portfolio project that links to FareScout
+- `README.md` - done
+- `docs/PORTFOLIO_CHECKLIST.md` - done
+- `docs/GLOBAL_LAUNCH.md` - done
+- the portfolio project that links to FareScout - done
 
 Then manually test:
 
