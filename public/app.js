@@ -327,8 +327,8 @@ waitlistForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const subject = encodeURIComponent("FareScout alert beta request");
-  const body = encodeURIComponent([
+  const subject = "FareScout alert beta request";
+  const body = [
     "Hi, I want to join the FareScout alert beta.",
     "",
     `Email: ${email}`,
@@ -336,10 +336,10 @@ waitlistForm.addEventListener("submit", (event) => {
     `Target price: ${targetPrice}`,
     "",
     "I am interested in price-drop alerts for this route."
-  ].join("\n"));
+  ].join("\n");
 
-  waitlistNote.textContent = "Opening your email app with the beta request prepared.";
-  window.location.href = `mailto:desmilke@gmail.com?subject=${subject}&body=${body}`;
+  waitlistNote.textContent = getComposeNote(email, "beta request");
+  window.location.href = createComposeUrl(email, subject, body);
 });
 
 pilotForm.addEventListener("submit", (event) => {
@@ -354,8 +354,8 @@ pilotForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const subject = encodeURIComponent("FareScout founder pilot request");
-  const body = encodeURIComponent([
+  const subject = "FareScout founder pilot request";
+  const body = [
     "Hi, I am interested in FareScout founder pilot access.",
     "",
     `Email: ${email}`,
@@ -363,11 +363,54 @@ pilotForm.addEventListener("submit", (event) => {
     `Pilot interest: ${budget}`,
     "",
     "Please send me details about the 30-day monitored route pilot."
-  ].join("\n"));
+  ].join("\n");
 
-  pilotNote.textContent = "Opening your email app with the pilot request prepared.";
-  window.location.href = `mailto:desmilke@gmail.com?subject=${subject}&body=${body}`;
+  pilotNote.textContent = getComposeNote(email, "pilot request");
+  window.location.href = createComposeUrl(email, subject, body);
 });
+
+function createComposeUrl(senderEmail, subject, body) {
+  const recipient = "desmilke@gmail.com";
+  const domain = getEmailDomain(senderEmail);
+  const params = new URLSearchParams({
+    to: recipient,
+    su: subject,
+    body
+  });
+
+  if (domain === "gmail.com" || domain === "googlemail.com") {
+    return `https://mail.google.com/mail/?view=cm&fs=1&${params.toString()}`;
+  }
+
+  if (["outlook.com", "hotmail.com", "live.com", "msn.com"].includes(domain)) {
+    const outlookParams = new URLSearchParams({
+      to: recipient,
+      subject,
+      body
+    });
+    return `https://outlook.live.com/mail/0/deeplink/compose?${outlookParams.toString()}`;
+  }
+
+  return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function getComposeNote(email, requestType) {
+  const domain = getEmailDomain(email);
+
+  if (domain === "gmail.com" || domain === "googlemail.com") {
+    return `Opening Gmail in the browser with the ${requestType} prepared.`;
+  }
+
+  if (["outlook.com", "hotmail.com", "live.com", "msn.com"].includes(domain)) {
+    return `Opening Outlook in the browser with the ${requestType} prepared.`;
+  }
+
+  return `Opening your default email app with the ${requestType} prepared.`;
+}
+
+function getEmailDomain(email) {
+  return String(email || "").trim().toLowerCase().split("@").pop() || "";
+}
 
 function renderOffers(payload) {
   results.className = "results";
