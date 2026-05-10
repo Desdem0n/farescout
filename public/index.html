@@ -61,30 +61,33 @@
             Adults
             <input name="adults" type="number" min="1" max="9" value="1" required>
           </label>
-          <label>
-            Currency
-            <select name="market" required>
-              <option value="PL">PLN · Poland</option>
-              <option value="GB">GBP · United Kingdom</option>
-              <option value="US">USD · United States</option>
-              <option value="DE">EUR · Germany</option>
-              <option value="FR">EUR · France</option>
-              <option value="ES">EUR · Spain</option>
-              <option value="IT">EUR · Italy</option>
-              <option value="NL">EUR · Netherlands</option>
-              <option value="CZ">CZK · Czech Republic</option>
-              <option value="CH">CHF · Switzerland</option>
-              <option value="SE">SEK · Sweden</option>
-              <option value="NO">NOK · Norway</option>
-              <option value="DK">DKK · Denmark</option>
-              <option value="CA">CAD · Canada</option>
-              <option value="JP">JPY · Japan</option>
-              <option value="AU">AUD · Australia</option>
-            </select>
-          </label>
           <details class="advanced-options">
-            <summary>Advanced filters</summary>
+            <summary>
+              <span>Advanced filters</span>
+              <small>Currency, airline, class, nonstop</small>
+            </summary>
             <div class="advanced-grid">
+              <label>
+                Currency
+                <select name="market" required>
+                  <option value="PL">PLN · Poland</option>
+                  <option value="GB">GBP · United Kingdom</option>
+                  <option value="US">USD · United States</option>
+                  <option value="DE">EUR · Germany</option>
+                  <option value="FR">EUR · France</option>
+                  <option value="ES">EUR · Spain</option>
+                  <option value="IT">EUR · Italy</option>
+                  <option value="NL">EUR · Netherlands</option>
+                  <option value="CZ">CZK · Czech Republic</option>
+                  <option value="CH">CHF · Switzerland</option>
+                  <option value="SE">SEK · Sweden</option>
+                  <option value="NO">NOK · Norway</option>
+                  <option value="DK">DKK · Denmark</option>
+                  <option value="CA">CAD · Canada</option>
+                  <option value="JP">JPY · Japan</option>
+                  <option value="AU">AUD · Australia</option>
+                </select>
+              </label>
               <label>
                 Provider
                 <select name="provider">
