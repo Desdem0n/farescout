@@ -17,6 +17,7 @@ Use the live demo as proof of execution. Use the waitlist and founder pilot form
 - Short 9:16 screen recording of `/promo.html`.
 - One screenshot of the main search screen.
 - One clear CTA: "Try the demo and submit one route you want monitored."
+- US-friendly presets such as New York to Miami, Los Angeles to Las Vegas, Chicago to New York, and San Francisco to Seattle.
 
 ## Short Video Script
 
@@ -34,6 +35,8 @@ CTA: Try FareScout and tell us your route.
 
 ```text
 I built FareScout: a live flight-fare search demo that compares API-backed fares across a full departure day and highlights the cheapest returned offer.
+
+It now includes US-friendly route presets like NYC -> Miami, LA -> Las Vegas, Chicago -> NYC, and SF -> Seattle.
 
 Next step: monitored price-drop alerts.
 

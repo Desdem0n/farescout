@@ -43,6 +43,38 @@ const routePresets = {
     market: "US",
     provider: "ALL",
     cabinClass: "economy"
+  },
+  "nyc-miami": {
+    origin: "JFK",
+    destinationCountry: "US",
+    destination: "MIA",
+    market: "US",
+    provider: "ALL",
+    cabinClass: "economy"
+  },
+  "la-vegas": {
+    origin: "LAX",
+    destinationCountry: "US",
+    destination: "LAS",
+    market: "US",
+    provider: "ALL",
+    cabinClass: "economy"
+  },
+  "chicago-nyc": {
+    origin: "ORD",
+    destinationCountry: "US",
+    destination: "LGA",
+    market: "US",
+    provider: "ALL",
+    cabinClass: "economy"
+  },
+  "sf-seattle": {
+    origin: "SFO",
+    destinationCountry: "US",
+    destination: "SEA",
+    market: "US",
+    provider: "ALL",
+    cabinClass: "economy"
   }
 };
 
@@ -122,19 +154,39 @@ const airportsByCountry = {
     label: "United States",
     airports: [
       ["JFK", "New York JFK"],
+      ["LGA", "New York LaGuardia"],
       ["EWR", "Newark"],
       ["BOS", "Boston"],
       ["ORD", "Chicago O'Hare"],
+      ["MDW", "Chicago Midway"],
+      ["DCA", "Washington Reagan"],
       ["IAD", "Washington Dulles"],
       ["MIA", "Miami"],
+      ["FLL", "Fort Lauderdale"],
+      ["TPA", "Tampa"],
       ["LAX", "Los Angeles"],
+      ["BUR", "Burbank"],
       ["SFO", "San Francisco"],
+      ["OAK", "Oakland"],
+      ["SJC", "San Jose"],
       ["SEA", "Seattle"],
       ["ATL", "Atlanta"],
       ["DFW", "Dallas Fort Worth"],
+      ["DAL", "Dallas Love Field"],
       ["DEN", "Denver"],
+      ["PHX", "Phoenix"],
       ["LAS", "Las Vegas"],
-      ["MCO", "Orlando"]
+      ["MCO", "Orlando"],
+      ["CLT", "Charlotte"],
+      ["MSP", "Minneapolis St Paul"],
+      ["DTW", "Detroit"],
+      ["PHL", "Philadelphia"],
+      ["SAN", "San Diego"],
+      ["PDX", "Portland"],
+      ["AUS", "Austin"],
+      ["BNA", "Nashville"],
+      ["MSY", "New Orleans"],
+      ["SLC", "Salt Lake City"]
     ]
   },
   FR: {

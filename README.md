@@ -20,12 +20,12 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 ## Features
 
 - Live fare search through the Ignav API.
-- Quick route presets for high-interest international trips.
+- Quick route presets for high-interest international and United States domestic trips.
 - Global-friendly airport search with country-based destination selection and Warsaw as the default demo origin.
 - Airport search by real three-letter IATA airport codes.
 - Full-day departure search, displayed as `00:00` through `23:59`.
 - Currency selection through Ignav market codes such as `PL`, `GB`, and `US`.
-- Airline/provider filtering, including Wizz Air, LOT, Ryanair, British Airways, Lufthansa, KLM, Air France, TAP, Iberia, and major US carriers.
+- Airline/provider filtering, including Wizz Air, LOT, Ryanair, British Airways, Lufthansa, KLM, Air France, TAP, Iberia, Southwest, JetBlue, Alaska, Spirit, Frontier, and major US carriers.
 - Flight class selection: economy, premium economy, business, and first.
 - Clear cheapest-fare highlight without hiding other returned prices.
 - Beta waitlist form for future monitored price alerts.
