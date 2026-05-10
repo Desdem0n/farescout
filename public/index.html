@@ -82,55 +82,60 @@
               <option value="AU">AUD · Australia</option>
             </select>
           </label>
-          <label>
-            Provider
-            <select name="provider">
-              <option value="ALL">All providers</option>
-              <option value="W6">Wizz Air</option>
-              <option value="W4">Wizz Air Malta</option>
-              <option value="LO">LOT Polish Airlines</option>
-              <option value="FR">Ryanair</option>
-              <option value="BA">British Airways</option>
-              <option value="LH">Lufthansa</option>
-              <option value="LX">SWISS</option>
-              <option value="OS">Austrian Airlines</option>
-              <option value="KL">KLM</option>
-              <option value="AF">Air France</option>
-              <option value="AY">Finnair</option>
-              <option value="SK">SAS</option>
-              <option value="DY">Norwegian</option>
-              <option value="U2">easyJet</option>
-              <option value="TP">TAP Air Portugal</option>
-              <option value="IB">Iberia</option>
-              <option value="VY">Vueling</option>
-              <option value="EW">Eurowings</option>
-              <option value="TK">Turkish Airlines</option>
-              <option value="EK">Emirates</option>
-              <option value="QR">Qatar Airways</option>
-              <option value="UA">United Airlines</option>
-              <option value="AA">American Airlines</option>
-              <option value="DL">Delta Air Lines</option>
-              <option value="WN">Southwest Airlines</option>
-              <option value="B6">JetBlue</option>
-              <option value="AS">Alaska Airlines</option>
-              <option value="NK">Spirit Airlines</option>
-              <option value="F9">Frontier Airlines</option>
-              <option value="AC">Air Canada</option>
-            </select>
-          </label>
-          <label>
-            Flight class
-            <select name="cabinClass" required>
-              <option value="economy">Economy</option>
-              <option value="premium_economy">Premium economy</option>
-              <option value="business">Business</option>
-              <option value="first">First</option>
-            </select>
-          </label>
-          <label class="toggle">
-            <input name="nonStop" type="checkbox">
-            <span>Nonstop only</span>
-          </label>
+          <details class="advanced-options">
+            <summary>Advanced filters</summary>
+            <div class="advanced-grid">
+              <label>
+                Provider
+                <select name="provider">
+                  <option value="ALL">All providers</option>
+                  <option value="W6">Wizz Air</option>
+                  <option value="W4">Wizz Air Malta</option>
+                  <option value="LO">LOT Polish Airlines</option>
+                  <option value="FR">Ryanair</option>
+                  <option value="BA">British Airways</option>
+                  <option value="LH">Lufthansa</option>
+                  <option value="LX">SWISS</option>
+                  <option value="OS">Austrian Airlines</option>
+                  <option value="KL">KLM</option>
+                  <option value="AF">Air France</option>
+                  <option value="AY">Finnair</option>
+                  <option value="SK">SAS</option>
+                  <option value="DY">Norwegian</option>
+                  <option value="U2">easyJet</option>
+                  <option value="TP">TAP Air Portugal</option>
+                  <option value="IB">Iberia</option>
+                  <option value="VY">Vueling</option>
+                  <option value="EW">Eurowings</option>
+                  <option value="TK">Turkish Airlines</option>
+                  <option value="EK">Emirates</option>
+                  <option value="QR">Qatar Airways</option>
+                  <option value="UA">United Airlines</option>
+                  <option value="AA">American Airlines</option>
+                  <option value="DL">Delta Air Lines</option>
+                  <option value="WN">Southwest Airlines</option>
+                  <option value="B6">JetBlue</option>
+                  <option value="AS">Alaska Airlines</option>
+                  <option value="NK">Spirit Airlines</option>
+                  <option value="F9">Frontier Airlines</option>
+                  <option value="AC">Air Canada</option>
+                </select>
+              </label>
+              <label>
+                Flight class
+                <select name="cabinClass" required>
+                  <option value="economy">Economy</option>
+                  <option value="premium_economy">Premium economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First</option>
+                </select>
+              </label>
+              <label class="toggle">
+                <input name="nonStop" type="checkbox">
+                <span>Nonstop only</span>
+              </label>
+            </div>
+          </details>
           <button class="search-submit" type="submit">Search fares</button>
         </form>
 

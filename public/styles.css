@@ -141,6 +141,34 @@ label {
   font-weight: 700;
 }
 
+.advanced-options {
+  padding: 12px;
+  border: 1px solid rgba(22, 108, 107, 0.16);
+  border-radius: 6px;
+  background: rgba(232, 244, 242, 0.52);
+}
+
+.advanced-options summary {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  color: var(--accent-strong);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.advanced-options summary::marker {
+  color: var(--warm);
+}
+
+.advanced-grid {
+  display: grid;
+  gap: 13px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(22, 108, 107, 0.14);
+}
+
 input,
 select {
   width: 100%;
@@ -642,7 +670,16 @@ button:disabled {
 
   .route-fields,
   .toggle,
+  .advanced-options,
   .flight-form > button {
+    grid-column: 1 / -1;
+  }
+
+  .advanced-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .advanced-grid .toggle {
     grid-column: 1 / -1;
   }
 
