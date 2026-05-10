@@ -36,19 +36,23 @@
         <form id="flight-form" class="flight-form">
           <div class="route-fields">
             <label>
+              From country
+              <select id="origin-country" name="originCountry" required></select>
+            </label>
+            <label>
               From
-              <input name="origin" maxlength="3" value="WAW" list="airport-options" autocomplete="off" required>
+              <select name="origin" required></select>
             </label>
             <button id="swap-route" class="icon-button" type="button" aria-label="Swap origin and destination" title="Swap route">⇄</button>
+            <label>
+              To country
+              <select id="destination-country" name="destinationCountry" required></select>
+            </label>
             <label>
               To
               <select name="destination" required></select>
             </label>
           </div>
-          <label>
-            Destination country
-            <select id="destination-country" name="destinationCountry" required></select>
-          </label>
           <label>
             Departure
             <input name="departureDate" type="date" required>

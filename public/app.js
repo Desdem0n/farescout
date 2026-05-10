@@ -4,6 +4,7 @@ const statusLabel = document.querySelector("#status-label");
 const resultTitle = document.querySelector("#result-title");
 const clearButton = document.querySelector("#clear-button");
 const swapRouteButton = document.querySelector("#swap-route");
+const originCountry = document.querySelector("#origin-country");
 const destinationCountry = document.querySelector("#destination-country");
 const waitlistForm = document.querySelector("#waitlist-form");
 const waitlistNote = document.querySelector("#waitlist-note");
@@ -178,7 +179,9 @@ const airportsByCountry = {
   }
 };
 
-populateCountries();
+populateCountrySelect(originCountry);
+populateCountrySelect(destinationCountry);
+populateOriginAirports("PL", "WAW");
 populateDestinationAirports("GB", "LHR");
 setDefaultDate();
 applyUrlSearchParams();
@@ -195,8 +198,9 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  const helperFields = new Set(["nonStop", "originCountry", "destinationCountry"]);
   for (const [key, value] of data.entries()) {
-    if (key !== "nonStop" && String(value).trim()) {
+    if (!helperFields.has(key) && String(value).trim()) {
       params.set(key, String(value).trim().toUpperCase());
     }
   }
@@ -230,8 +234,12 @@ clearButton.addEventListener("click", () => {
 swapRouteButton.addEventListener("click", () => {
   const origin = form.elements.origin.value;
   const destination = form.elements.destination.value;
-  form.elements.origin.value = destination;
+  selectOriginAirport(destination);
   selectDestinationAirport(origin);
+});
+
+originCountry.addEventListener("change", () => {
+  populateOriginAirports(originCountry.value);
 });
 
 destinationCountry.addEventListener("change", () => {
@@ -357,8 +365,8 @@ function renderOffers(payload) {
   }
 }
 
-function populateCountries() {
-  destinationCountry.replaceChildren(...Object.entries(airportsByCountry).map(([code, group]) => {
+function populateCountrySelect(countrySelect) {
+  countrySelect.replaceChildren(...Object.entries(airportsByCountry).map(([code, group]) => {
     const option = document.createElement("option");
     option.value = code;
     option.textContent = group.label;
@@ -366,9 +374,10 @@ function populateCountries() {
   }));
 }
 
-function populateDestinationAirports(countryCode, selectedCode = "") {
+function populateAirportSelect(countrySelect, airportSelect, countryCode, selectedCode = "") {
   const group = airportsByCountry[countryCode] || airportsByCountry.OTHER;
-  destinationCountry.value = countryCode;
+  const selectedCountry = airportsByCountry[countryCode] ? countryCode : "OTHER";
+  countrySelect.value = selectedCountry;
   const options = group.airports.map(([code, city]) => {
     const option = document.createElement("option");
     option.value = code;
@@ -376,19 +385,38 @@ function populateDestinationAirports(countryCode, selectedCode = "") {
     return option;
   });
 
-  form.elements.destination.replaceChildren(...options);
-  form.elements.destination.value = selectedCode || options[0]?.value || "";
+  airportSelect.replaceChildren(...options);
+  airportSelect.value = selectedCode && options.some((option) => option.value === selectedCode)
+    ? selectedCode
+    : options[0]?.value || "";
+}
+
+function populateOriginAirports(countryCode, selectedCode = "") {
+  populateAirportSelect(originCountry, form.elements.origin, countryCode, selectedCode);
+}
+
+function populateDestinationAirports(countryCode, selectedCode = "") {
+  populateAirportSelect(destinationCountry, form.elements.destination, countryCode, selectedCode);
+}
+
+function selectOriginAirport(airportCode) {
+  const country = findCountryForAirport(airportCode);
+  if (country) {
+    populateOriginAirports(country, airportCode);
+    return;
+  }
+
+  populateOriginAirports("PL", "WAW");
 }
 
 function selectDestinationAirport(airportCode) {
   const country = findCountryForAirport(airportCode);
   if (country) {
-    destinationCountry.value = country;
     populateDestinationAirports(country, airportCode);
     return;
   }
 
-  form.elements.destination.value = airportCode;
+  populateDestinationAirports("GB", "LHR");
 }
 
 function findCountryForAirport(airportCode) {
@@ -545,10 +573,16 @@ function applyUrlSearchParams() {
   const params = new URLSearchParams(window.location.search);
   const origin = params.get("origin");
   const destination = params.get("destination");
+  const originCountryParam = params.get("originCountry");
   const destinationCountryParam = params.get("destinationCountry");
   const fields = ["departureDate", "returnDate", "adults", "market", "provider", "cabinClass"];
 
-  if (origin) form.elements.origin.value = origin.toUpperCase();
+  if (originCountryParam) {
+    const country = originCountryParam.toUpperCase();
+    populateOriginAirports(country, origin?.toUpperCase() || "");
+  } else if (origin) {
+    selectOriginAirport(origin.toUpperCase());
+  }
 
   if (destinationCountryParam) {
     const country = destinationCountryParam.toUpperCase();
