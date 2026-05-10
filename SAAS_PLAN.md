@@ -6,13 +6,14 @@ FareScout should not compete directly with large travel search engines. The SaaS
 
 **FareScout watches flight prices for you and tells you when a trip becomes worth booking.**
 
-The product starts with travelers flying from Poland who are flexible on dates, airports, or destination countries and want alerts instead of repeating the same manual searches.
+The product can start with a strong Warsaw-to-Europe demo route, but the commercial story should be global: flexible travelers pick the airport they use, set a target fare, and let FareScout monitor the route instead of repeating manual searches.
 
 ## Target Niche
 
 Primary niche:
 
-- People based in Poland who regularly search for cheap flights from `WAW`, `WMI`, `KRK`, `GDN`, `KTW`, `WRO`, and `POZ`.
+- Flexible travelers who regularly search the same airport pairs and want a target-price alert.
+- Early users from airport-heavy markets such as Poland, the United Kingdom, Germany, Spain, Portugal, and the United States.
 - Flexible travelers who care more about price than exact dates.
 - Weekend travelers, remote workers, students, and families watching school-holiday prices.
 
@@ -21,7 +22,7 @@ Early route examples:
 - Warsaw to London airports.
 - Warsaw to Spain and Portugal.
 - Krakow or Gdansk to southern Europe.
-- Poland to New York or other long-haul destinations.
+- Europe to the United States and other long-haul destinations.
 
 ## Core Paid Problem
 
@@ -80,9 +81,9 @@ The SaaS MVP should include:
 
 Initial pricing to test:
 
-- Free: 0 PLN.
-- Starter: 19 PLN/month.
-- Pro: 49 PLN/month.
+- Free: 0 PLN / 0 USD / 0 EUR.
+- Starter: 19 PLN/month or 5 USD/EUR/month.
+- Pro: 49 PLN/month or 12 USD/EUR/month.
 
 The goal is not to optimize price immediately. The first validation target is whether users will exchange an email address and then pay for monitored alerts.
 
@@ -191,7 +192,7 @@ Hero headline:
 
 Subheading:
 
-Create price alerts for routes from Poland, set your target fare, and get notified when a trip becomes worth booking.
+Create price alerts for routes you care about, set your target fare, and get notified when a trip becomes worth booking.
 
 Primary CTA:
 

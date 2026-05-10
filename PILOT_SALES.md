@@ -32,7 +32,7 @@ FareScout Founder Pilot
 Manual onboarding
 Up to 5 monitored routes
 Email-based price-drop updates
-Founding-user pilot from 19 PLN
+Founding-user pilot from 19 PLN / 5 USD / 5 EUR
 ```
 
 What the buyer gets:
@@ -57,7 +57,7 @@ The public demo should contain:
 - live manual search
 - beta waitlist
 - founder pilot inquiry
-- pricing signal framed as "from 19 PLN", not as automatic checkout
+- pricing signal framed as "from 19 PLN / 5 USD / 5 EUR", not as automatic checkout
 
 It should not contain:
 
@@ -69,11 +69,11 @@ It should not contain:
 
 ## Customer Acquisition Method
 
-Start narrow:
+Start focused, then global:
 
-1. Polish the public demo.
+1. Polish the public demo and deploy it with a simple URL.
 2. Add a "Founder pilot" inquiry CTA.
-3. Share the demo in targeted Polish travel groups, LinkedIn posts, and portfolio channels.
+3. Share the demo in targeted travel groups, creator communities, LinkedIn posts, X threads, Reddit discussions where allowed, and portfolio channels.
 4. Ask users to submit one route they want watched.
 5. Reply manually to the first interested users.
 6. Run manual or semi-manual monitoring for a small group.

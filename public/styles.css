@@ -85,6 +85,27 @@ select {
   letter-spacing: 0.08em;
 }
 
+.promo-link {
+  display: inline-grid;
+  min-height: 34px;
+  margin-top: 12px;
+  padding: 0 12px;
+  align-items: center;
+  justify-self: start;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid rgba(22, 108, 107, 0.16);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.promo-link:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
 h1,
 h2 {
   margin: 0;
@@ -483,6 +504,150 @@ button:disabled {
   transform: rotate(45deg);
 }
 
+.promo-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(209, 79, 42, 0.22), transparent 28%),
+    radial-gradient(circle at 20% 28%, rgba(22, 108, 107, 0.26), transparent 34%),
+    #0d1b21;
+  color: #fff;
+}
+
+.promo-reel {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.promo-scene {
+  width: min(100%, 430px);
+  min-height: min(760px, calc(100vh - 32px));
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 22px;
+  padding: 22px;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    #10252b;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+}
+
+.promo-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 950;
+}
+
+.promo-brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+}
+
+.promo-brand span {
+  font-size: 1.25rem;
+}
+
+.promo-copy {
+  align-self: center;
+  display: grid;
+  gap: 12px;
+}
+
+.promo-copy p {
+  margin: 0;
+  color: #ff8157;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.promo-copy h1 {
+  max-width: 10ch;
+  font-size: clamp(2.8rem, 14vw, 4.35rem);
+  line-height: 0.95;
+}
+
+.promo-copy span {
+  max-width: 32ch;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.promo-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  color: var(--ink);
+  background: #fffaf3;
+  border-radius: 8px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.24);
+  animation: float-card 4s ease-in-out infinite;
+}
+
+.promo-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.promo-card span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.promo-card strong {
+  text-align: right;
+}
+
+.promo-card .promo-price strong {
+  color: var(--warm);
+  font-size: 1.35rem;
+}
+
+.promo-cta {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.promo-cta a {
+  display: grid;
+  min-height: 54px;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--warm), var(--accent));
+  border-radius: 6px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.promo-cta small {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @media (min-width: 680px) {
   .app-shell {
     width: min(1180px, calc(100% - 40px));
@@ -509,12 +674,12 @@ button:disabled {
   }
 
   .route-fields {
-    grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr);
-    align-items: end;
+    grid-template-columns: 1fr;
   }
 
   .icon-button {
     width: 46px;
+    justify-self: center;
   }
 
   .toolbar {

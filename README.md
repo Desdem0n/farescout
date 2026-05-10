@@ -20,8 +20,8 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 ## Features
 
 - Live fare search through the Ignav API.
-- Quick route presets for common Warsaw departures.
-- Warsaw-focused origin defaults with country-based destination selection.
+- Quick route presets for high-interest international trips.
+- Global-friendly airport search with country-based destination selection and Warsaw as the default demo origin.
 - Airport search by real three-letter IATA airport codes.
 - Full-day departure search, displayed as `00:00` through `23:59`.
 - Currency selection through Ignav market codes such as `PL`, `GB`, and `US`.
@@ -29,6 +29,8 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Flight class selection: economy, premium economy, business, and first.
 - Clear cheapest-fare highlight without hiding other returned prices.
 - Beta waitlist form for future monitored price alerts.
+- Founder pilot inquiry form for early commercial validation without public billing logic.
+- Share-ready promo reel page at `/promo.html` for short launch videos.
 - Mobile-first responsive layout.
 - Dependency-free runtime: only Node built-ins are used.
 
@@ -100,6 +102,7 @@ node --check public/app.js
 - [SaaS Plan](./SAAS_PLAN.md)
 - [Paid Pilot Plan](./PILOT_SALES.md)
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
+- [Global Launch Playbook](./docs/GLOBAL_LAUNCH.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 
 ## API Notes
