@@ -29,6 +29,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Currency selection through Ignav market codes such as `PL`, `GB`, and `US`.
 - Airline/provider filtering, including Wizz Air, LOT, Ryanair, British Airways, Lufthansa, KLM, Air France, TAP, Iberia, Southwest, JetBlue, Alaska, Spirit, Frontier, and major US carriers.
 - Flight class selection: economy, premium economy, business, and first.
+- Advanced filters keep provider, cabin class, and nonstop controls available without crowding the first screen.
 - Clear cheapest-fare highlight without hiding other returned prices.
 - Beta waitlist form for future monitored price alerts.
 - Founder pilot inquiry form for early commercial validation without public billing logic.

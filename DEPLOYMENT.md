@@ -100,6 +100,16 @@ Then manually test:
 - `WAW -> LTN`, Wizz Air, PLN
 - beta waitlist email handoff
 
+## Updating The Live Demo
+
+This Render service was created from a public repository URL. When a new commit is pushed, use **Manual Deploy** -> **Deploy latest commit** in the Render service dashboard if the live app does not update automatically.
+
+After each deploy, confirm:
+
+- the service shows the latest commit as `live`
+- `/api/health` returns `configured: true`
+- the homepage reflects the intended UI change
+
 ## GitHub Repository Settings
 
 Suggested repository description:
