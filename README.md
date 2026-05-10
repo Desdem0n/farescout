@@ -22,8 +22,8 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 ## Features
 
 - Live fare search through the Ignav API.
-- Quick route presets for high-interest international and United States domestic trips.
 - Global-friendly airport search with country-based destination selection and Warsaw as the default demo origin.
+- Support for high-interest international and United States domestic routes through airport selection.
 - Airport search by real three-letter IATA airport codes.
 - Full-day departure search, displayed as `00:00` through `23:59`.
 - Currency selection through Ignav market codes such as `PL`, `GB`, and `US`.

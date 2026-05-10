@@ -25,7 +25,7 @@ Use `https://farescout.onrender.com/promo.html` in a 9:16 browser window.
 3-7s: FareScout searches live fares across the day.
 7-12s: Pick route, provider, cabin class, currency, and country.
 12-18s: The cheapest fare is highlighted without hiding other prices.
-18-24s: US presets are ready: NYC to Miami, LA to Vegas, Chicago to NYC, SF to Seattle.
+18-24s: US-friendly routes are supported: NYC to Miami, LA to Vegas, Chicago to NYC, SF to Seattle.
 24-30s: Try the demo and submit one route you want monitored.
 ```
 
@@ -42,7 +42,7 @@ FareScout is live.
 
 It searches API-backed flight fares, scans the full departure day, and highlights the cheapest returned offer without hiding the rest.
 
-US presets included: NYC -> Miami, LA -> Vegas, Chicago -> NYC, SF -> Seattle.
+US-friendly routes included: NYC -> Miami, LA -> Vegas, Chicago -> NYC, SF -> Seattle.
 
 Try it:
 https://farescout.onrender.com

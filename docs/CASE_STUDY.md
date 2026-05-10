@@ -19,7 +19,7 @@ For a portfolio project, the challenge was also technical: build something real 
 - Started with a minimal Node backend to keep the API key server-side.
 - Built the frontend with HTML, CSS, and vanilla JavaScript so the code remains easy to review.
 - Added country and airport pickers to prevent broad city-code searches that the provider does not support.
-- Added quick route presets so a reviewer can understand the product without knowing airport codes.
+- Reworked route selection so reviewers can choose airports from country-based lists without needing city-code shortcuts.
 - Normalized provider responses before rendering them in the browser.
 - Sorted returned fares by total price and highlighted only the cheapest result.
 - Added product docs so reviewers can see the thinking behind the MVP.
