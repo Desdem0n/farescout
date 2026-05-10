@@ -72,12 +72,24 @@ npm run check
 
 The app has no install-time dependencies, so the build step is a lightweight syntax check.
 
+## Production Headers
+
+The Node server sends basic security headers for public deployment:
+
+- `Content-Security-Policy`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `frame-ancestors 'none'`
+
+API responses are not cached. Static logo assets can be cached by the browser.
+
 ## After Deployment
 
 Add the live URL to:
 
 - `README.md`
 - `docs/PORTFOLIO_CHECKLIST.md`
+- `docs/GLOBAL_LAUNCH.md`
 - the portfolio project that links to FareScout
 
 Then manually test:

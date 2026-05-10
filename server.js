@@ -220,8 +220,7 @@ async function serveStatic(pathname, res) {
   }
 
   const contents = await readFile(requestedPath);
-  res.writeHead(200, { "Content-Type": mimeTypes[extname(requestedPath)] || "application/octet-stream" });
-  res.end(contents);
+  sendStatic(res, requestedPath, contents);
 }
 
 function loadDotEnv() {
@@ -299,11 +298,48 @@ function formatMinutes(value) {
 }
 
 function sendJson(res, status, data) {
-  res.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+  res.writeHead(status, {
+    ...securityHeaders(),
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store"
+  });
   res.end(JSON.stringify(data));
 }
 
 function sendText(res, status, data) {
-  res.writeHead(status, { "Content-Type": "text/plain; charset=utf-8" });
+  res.writeHead(status, {
+    ...securityHeaders(),
+    "Content-Type": "text/plain; charset=utf-8",
+    "Cache-Control": "no-store"
+  });
   res.end(data);
+}
+
+function sendStatic(res, requestedPath, contents) {
+  const extension = extname(requestedPath);
+  const isAsset = requestedPath.includes(`${publicDir}\\assets\\`) || requestedPath.includes(`${publicDir}/assets/`);
+
+  res.writeHead(200, {
+    ...securityHeaders(),
+    "Content-Type": mimeTypes[extension] || "application/octet-stream",
+    "Cache-Control": isAsset ? "public, max-age=604800, immutable" : "no-cache"
+  });
+  res.end(contents);
+}
+
+function securityHeaders() {
+  return {
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Content-Security-Policy": [
+      "default-src 'self'",
+      "script-src 'self'",
+      "style-src 'self'",
+      "img-src 'self' data:",
+      "connect-src 'self'",
+      "form-action 'self'",
+      "base-uri 'self'",
+      "frame-ancestors 'none'"
+    ].join("; ")
+  };
 }
