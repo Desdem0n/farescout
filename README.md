@@ -105,6 +105,8 @@ node --check public/app.js
 - [Paid Pilot Plan](./PILOT_SALES.md)
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [Global Launch Playbook](./docs/GLOBAL_LAUNCH.md)
+- [Social Launch Kit](./docs/SOCIAL_LAUNCH_KIT.md)
+- [GitHub Repository Setup](./docs/GITHUB_REPO_SETUP.md)
 - [Post-Deploy Launch Checklist](./docs/POST_DEPLOY_LAUNCH.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 

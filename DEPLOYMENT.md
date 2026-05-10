@@ -105,7 +105,7 @@ Then manually test:
 Suggested repository description:
 
 ```text
-Responsive live flight fare finder built with Node.js, vanilla JavaScript, and the Ignav API.
+Live flight fare finder built with Node.js, vanilla JavaScript, and the Ignav API.
 ```
 
 Suggested topics:
@@ -118,7 +118,17 @@ api-integration
 responsive-design
 portfolio-project
 saas-mvp
+travel-tech
+render
 ```
+
+Homepage:
+
+```text
+https://farescout.onrender.com
+```
+
+See [GitHub Repository Setup](./docs/GITHUB_REPO_SETUP.md).
 
 ## Before Sharing
 
