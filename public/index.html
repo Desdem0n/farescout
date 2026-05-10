@@ -250,6 +250,32 @@
           <button type="submit">Join alert beta</button>
           <small id="waitlist-note">No account yet. This opens a prepared email so we can validate demand first.</small>
         </form>
+
+        <form id="pilot-form" class="pilot-card">
+          <div>
+            <p>Founder pilot</p>
+            <h3>Want a 30-day monitored route test?</h3>
+            <span>Request early access to a time-limited FareScout pilot before subscriptions launch.</span>
+          </div>
+          <label>
+            Work email
+            <input name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>
+            Routes to monitor
+            <input name="routes" placeholder="WAW to LTN, KRK to BCN" required>
+          </label>
+          <label>
+            Pilot budget
+            <select name="budget" required>
+              <option value="19 PLN / 30 days">19 PLN / 30 days</option>
+              <option value="49 PLN / 30 days">49 PLN / 30 days</option>
+              <option value="Need more details">Need more details</option>
+            </select>
+          </label>
+          <button type="submit">Request pilot license</button>
+          <small id="pilot-note">No payment is taken here. This sends a request so the pilot can be confirmed manually.</small>
+        </form>
       </section>
     </main>
 

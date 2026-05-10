@@ -98,6 +98,7 @@ node --check public/app.js
 - [Deployment Notes](./DEPLOYMENT.md)
 - [Roadmap](./ROADMAP.md)
 - [SaaS Plan](./SAAS_PLAN.md)
+- [Paid Pilot Plan](./PILOT_SALES.md)
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 

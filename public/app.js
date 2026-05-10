@@ -8,6 +8,8 @@ const destinationCountry = document.querySelector("#destination-country");
 const routePresetButtons = document.querySelectorAll("[data-route-preset]");
 const waitlistForm = document.querySelector("#waitlist-form");
 const waitlistNote = document.querySelector("#waitlist-note");
+const pilotForm = document.querySelector("#pilot-form");
+const pilotNote = document.querySelector("#pilot-note");
 
 const routePresets = {
   london: {
@@ -285,6 +287,33 @@ waitlistForm.addEventListener("submit", (event) => {
   ].join("\n"));
 
   waitlistNote.textContent = "Opening your email app with the beta request prepared.";
+  window.location.href = `mailto:desmilke@gmail.com?subject=${subject}&body=${body}`;
+});
+
+pilotForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(pilotForm);
+  const email = String(data.get("email") || "").trim();
+  const routes = String(data.get("routes") || "").trim();
+  const budget = String(data.get("budget") || "").trim();
+
+  if (!email || !routes || !budget) {
+    pilotNote.textContent = "Add your email, routes, and pilot budget to request access.";
+    return;
+  }
+
+  const subject = encodeURIComponent("FareScout founder pilot request");
+  const body = encodeURIComponent([
+    "Hi, I am interested in a FareScout founder pilot license.",
+    "",
+    `Email: ${email}`,
+    `Routes to monitor: ${routes}`,
+    `Pilot budget: ${budget}`,
+    "",
+    "Please send me details about the 30-day monitored route pilot."
+  ].join("\n"));
+
+  pilotNote.textContent = "Opening your email app with the pilot request prepared.";
   window.location.href = `mailto:desmilke@gmail.com?subject=${subject}&body=${body}`;
 });
 

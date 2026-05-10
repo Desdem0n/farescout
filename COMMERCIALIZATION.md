@@ -21,6 +21,7 @@ This repository can contain:
 - beta waitlist email handoff
 - screenshots and portfolio assets
 - non-sensitive validation logic
+- paid pilot inquiry copy
 
 This repository should not contain:
 
@@ -33,6 +34,7 @@ This repository should not contain:
 - admin dashboard code
 - private analytics implementation
 - API keys, webhook secrets, email-provider keys, or database URLs
+- payment processing code until legal, billing, and private backend pieces are ready
 
 ## Private Backend Repository
 

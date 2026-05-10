@@ -267,7 +267,8 @@ button:disabled {
   margin-top: 18px;
 }
 
-.waitlist-card {
+.waitlist-card,
+.pilot-card {
   display: grid;
   gap: 12px;
   margin-top: 18px;
@@ -279,7 +280,15 @@ button:disabled {
   border-radius: 8px;
 }
 
-.waitlist-card p {
+.pilot-card {
+  background:
+    linear-gradient(135deg, rgba(17, 24, 32, 0.08), rgba(22, 108, 107, 0.10)),
+    #fff;
+  border-color: rgba(17, 24, 32, 0.14);
+}
+
+.waitlist-card p,
+.pilot-card p {
   margin: 0 0 6px;
   color: var(--warm);
   font-size: 0.74rem;
@@ -288,19 +297,28 @@ button:disabled {
   letter-spacing: 0.08em;
 }
 
-.waitlist-card h3 {
+.pilot-card p {
+  color: var(--accent);
+}
+
+.waitlist-card h3,
+.pilot-card h3 {
   margin: 0;
   font-size: 1.15rem;
   line-height: 1.2;
 }
 
 .waitlist-card span,
-.waitlist-card small {
+.waitlist-card small,
+.pilot-card span,
+.pilot-card small {
   color: var(--muted);
   line-height: 1.45;
 }
 
-.waitlist-card input {
+.waitlist-card input,
+.pilot-card input,
+.pilot-card select {
   text-transform: none;
 }
 
@@ -311,6 +329,11 @@ button:disabled {
 
 .waitlist-card button:hover {
   background: #a93b1c;
+}
+
+.pilot-card button {
+  background:
+    linear-gradient(135deg, var(--accent), var(--accent-strong));
 }
 
 .search-window {

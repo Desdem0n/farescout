@@ -86,6 +86,8 @@ Initial pricing to test:
 
 The goal is not to optimize price immediately. The first validation target is whether users will exchange an email address and then pay for monitored alerts.
 
+Before self-serve subscriptions, FareScout should test a manual founder pilot license. See [PILOT_SALES.md](./PILOT_SALES.md).
+
 ## Key User Stories
 
 - As a user, I want to save `WAW -> LTN under 400 PLN` so I can stop checking manually.
