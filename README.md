@@ -28,6 +28,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Airline/provider filtering, including Wizz Air, LOT, Ryanair, British Airways, Lufthansa, KLM, Air France, TAP, Iberia, and major US carriers.
 - Flight class selection: economy, premium economy, business, and first.
 - Clear cheapest-fare highlight without hiding other returned prices.
+- Beta waitlist form for future monitored price alerts.
 - Mobile-first responsive layout.
 - Dependency-free runtime: only Node built-ins are used.
 

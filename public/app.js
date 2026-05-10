@@ -6,6 +6,8 @@ const clearButton = document.querySelector("#clear-button");
 const swapRouteButton = document.querySelector("#swap-route");
 const destinationCountry = document.querySelector("#destination-country");
 const routePresetButtons = document.querySelectorAll("[data-route-preset]");
+const waitlistForm = document.querySelector("#waitlist-form");
+const waitlistNote = document.querySelector("#waitlist-note");
 
 const routePresets = {
   london: {
@@ -258,6 +260,33 @@ routePresetButtons.forEach((button) => {
 });
 
 form.addEventListener("change", syncActiveRoutePreset);
+
+waitlistForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(waitlistForm);
+  const email = String(data.get("email") || "").trim();
+  const route = String(data.get("route") || "").trim();
+  const targetPrice = String(data.get("targetPrice") || "").trim();
+
+  if (!email || !route || !targetPrice) {
+    waitlistNote.textContent = "Add your email, route, and target price to join the beta list.";
+    return;
+  }
+
+  const subject = encodeURIComponent("FareScout alert beta request");
+  const body = encodeURIComponent([
+    "Hi, I want to join the FareScout alert beta.",
+    "",
+    `Email: ${email}`,
+    `Route to watch: ${route}`,
+    `Target price: ${targetPrice}`,
+    "",
+    "I am interested in price-drop alerts for this route."
+  ].join("\n"));
+
+  waitlistNote.textContent = "Opening your email app with the beta request prepared.";
+  window.location.href = `mailto:desmilke@gmail.com?subject=${subject}&body=${body}`;
+});
 
 function renderOffers(payload) {
   results.className = "results";

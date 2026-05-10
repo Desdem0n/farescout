@@ -267,6 +267,52 @@ button:disabled {
   margin-top: 18px;
 }
 
+.waitlist-card {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(22, 108, 107, 0.10), rgba(209, 79, 42, 0.08)),
+    #fff;
+  border: 1px solid rgba(22, 108, 107, 0.18);
+  border-radius: 8px;
+}
+
+.waitlist-card p {
+  margin: 0 0 6px;
+  color: var(--warm);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.waitlist-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.waitlist-card span,
+.waitlist-card small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.waitlist-card input {
+  text-transform: none;
+}
+
+.waitlist-card button {
+  background:
+    linear-gradient(135deg, var(--warm), #a93b1c);
+}
+
+.waitlist-card button:hover {
+  background: #a93b1c;
+}
+
 .search-window {
   padding: 10px 12px;
   color: var(--accent-strong);

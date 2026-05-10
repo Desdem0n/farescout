@@ -17,6 +17,7 @@ node --check public/app.js
 - Search with a business class filter and confirm empty results are handled cleanly if no fares are available.
 - Search with a return date before departure and confirm validation stops the request.
 - Try a city code such as `LON` and confirm the provider error is readable.
+- Fill the fare alerts beta form and confirm it opens a prepared email request.
 - Resize to mobile width and confirm no title, labels, buttons, or cards are clipped.
 
 ## Expected Behaviors

@@ -228,6 +228,28 @@
         <div id="results" class="results empty-state">
           Enter airport codes and dates to compare live offers from the API.
         </div>
+
+        <form id="waitlist-form" class="waitlist-card">
+          <div>
+            <p>Fare alerts beta</p>
+            <h3>Stop checking the same trip manually.</h3>
+            <span>Join the early list for monitored routes and price-drop alerts from Poland.</span>
+          </div>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>
+            Route to watch
+            <input name="route" placeholder="WAW to LTN under 400 PLN" required>
+          </label>
+          <label>
+            Target price
+            <input name="targetPrice" placeholder="400 PLN" required>
+          </label>
+          <button type="submit">Join alert beta</button>
+          <small id="waitlist-note">No account yet. This opens a prepared email so we can validate demand first.</small>
+        </form>
       </section>
     </main>
 
