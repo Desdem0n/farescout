@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: farescout
+    env: node
+    plan: free
+    buildCommand: npm run check
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: IGNAV_BASE_URL
+        value: https://ignav.com/api
+      - key: IGNAV_API_KEY
+        sync: false

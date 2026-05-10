@@ -9,6 +9,38 @@ FareScout needs a backend because the Ignav API key must stay private. Static-on
 - Fly.io
 - Azure App Service
 
+## Fastest Path: Render
+
+This repository includes `render.yaml`, so Render can create the web service from the repo.
+
+1. Push the latest code to GitHub.
+2. Open Render and choose **New** -> **Blueprint**.
+3. Connect `Desdem0n/farescout`.
+4. Render should detect `render.yaml`.
+5. Add the secret value for `IGNAV_API_KEY`.
+6. Deploy.
+7. Open `/api/health` on the deployed URL and confirm:
+
+```json
+{
+  "ok": true,
+  "provider": "ignav",
+  "configured": true
+}
+```
+
+The service start command is:
+
+```bash
+node server.js
+```
+
+The health check path is:
+
+```text
+/api/health
+```
+
 ## Environment Variables
 
 Set these in the hosting provider:
@@ -31,6 +63,28 @@ IGNAV_BASE_URL=https://ignav.com/api
 ```bash
 node server.js
 ```
+
+## Build Command
+
+```bash
+npm run check
+```
+
+The app has no install-time dependencies, so the build step is a lightweight syntax check.
+
+## After Deployment
+
+Add the live URL to:
+
+- `README.md`
+- `docs/PORTFOLIO_CHECKLIST.md`
+- the portfolio project that links to FareScout
+
+Then manually test:
+
+- `/api/health`
+- `WAW -> LTN`, Wizz Air, PLN
+- beta waitlist email handoff
 
 ## GitHub Repository Settings
 

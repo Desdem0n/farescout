@@ -214,7 +214,7 @@ Feature blocks:
 
 ### Phase 1: Public Demo
 
-- Deploy the current app.
+- Deploy the current app. `render.yaml` is included for a fast Render blueprint setup.
 - Add live demo URL to README and portfolio.
 - Add analytics or simple server logs.
 - Add beta waitlist form. The current MVP uses a prepared email handoff so demand can be validated before adding database-backed accounts.

@@ -38,6 +38,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Backend: Node.js HTTP server
 - API: Ignav flight fares API
 - Configuration: `.env` file loaded server-side
+- Deployment-ready: Render blueprint through `render.yaml`
 
 ## Architecture
 
