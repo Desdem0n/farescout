@@ -112,3 +112,5 @@ saas-mvp
 - Confirm `.env.example` is present.
 - Confirm screenshots are up to date.
 - Confirm README setup works from a fresh clone.
+- Confirm the repository license still reflects the intended portfolio/proprietary use.
+- Confirm the deployed app does not expose `IGNAV_API_KEY` in browser responses, logs, or source maps.

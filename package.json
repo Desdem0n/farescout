@@ -2,6 +2,7 @@
   "name": "farescout",
   "version": "1.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "description": "A responsive live flight fare finder with provider, class, currency, and airport filtering.",
   "type": "module",
   "scripts": {

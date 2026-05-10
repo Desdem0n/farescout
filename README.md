@@ -117,6 +117,14 @@ node --check public/app.js
 - Employer-friendly documentation and product thinking.
 - CI-friendly project structure with a simple automated syntax check.
 
+## License And Use
+
+FareScout is public for portfolio review and technical evaluation, but it is not open-source software.
+
+The code, name, logo, product concept, and documentation are reserved. Commercial use, redistribution, resale, or hosted copies require prior written permission.
+
+See [LICENSE](./LICENSE) and [SECURITY](./SECURITY.md).
+
 ## Roadmap
 
 - Deploy a public demo.

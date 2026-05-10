@@ -171,6 +171,8 @@ Flight APIs can become expensive or rate-limited. FareScout needs cost control b
 
 Before charging users:
 
+- Keep the commercial SaaS code private or move sensitive product logic into a private backend.
+- Keep the public repository positioned as portfolio/demo source, not open-source software.
 - Privacy policy.
 - Terms of service.
 - Cookie notice if analytics are added.
