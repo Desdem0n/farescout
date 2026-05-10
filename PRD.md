@@ -4,7 +4,7 @@
 
 FareScout is a live flight fare finder focused on helping users quickly compare fares, identify the cheapest option, and filter by route, provider, class, and currency.
 
-The current version is a portfolio-grade MVP. A future SaaS version could add user accounts, saved searches, price alerts, background monitoring, and subscriptions.
+The current version is a portfolio-grade MVP. A future SaaS version could add user accounts, saved searches, price alerts, background monitoring, and subscriptions. The SaaS direction is documented in [SAAS_PLAN.md](./SAAS_PLAN.md).
 
 ## Problem
 
@@ -104,8 +104,11 @@ For a technical portfolio, the project also needs to show practical product judg
 
 ## SaaS Roadmap
 
+- Public deployment.
+- Beta waitlist for fare alerts.
 - User authentication.
 - Saved searches.
+- Saved fare alerts with target prices.
 - Fare price history.
 - Email or Telegram alerts.
 - Scheduled background fare checks.

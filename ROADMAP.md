@@ -19,10 +19,14 @@
 
 ## SaaS Direction
 
+- Public hosted demo.
+- Beta waitlist for fare alerts.
 - User accounts.
+- Saved fare alerts with target price.
 - Subscription billing.
 - Usage limits by plan.
 - Scheduled background fare monitoring.
+- Email notifications.
 - Admin dashboard for usage and API costs.
 - Legal pages: privacy policy, terms, and affiliate disclosure.
 

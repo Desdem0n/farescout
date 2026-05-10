@@ -95,6 +95,7 @@ node --check public/app.js
 - [Testing Checklist](./TESTING.md)
 - [Deployment Notes](./DEPLOYMENT.md)
 - [Roadmap](./ROADMAP.md)
+- [SaaS Plan](./SAAS_PLAN.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 
 ## API Notes
@@ -116,6 +117,7 @@ node --check public/app.js
 
 ## Roadmap
 
+- Deploy a public demo.
 - Add saved searches.
 - Add price-drop alerts.
 - Add historical price tracking.
