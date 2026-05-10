@@ -21,6 +21,7 @@
 
 - Public hosted demo.
 - Beta waitlist for fare alerts.
+- Private commercial backend repository.
 - User accounts.
 - Saved fare alerts with target price.
 - Subscription billing.

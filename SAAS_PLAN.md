@@ -156,6 +156,8 @@ Recommended first SaaS stack:
 - Payments: Stripe Checkout and Billing Portal.
 - Hosting: Render or Railway for fastest deployment.
 
+Commercial implementation should be split from this public demo repository. The private backend boundary is documented in [COMMERCIALIZATION.md](./COMMERCIALIZATION.md).
+
 ## API Cost Controls
 
 Flight APIs can become expensive or rate-limited. FareScout needs cost control before public SaaS launch:

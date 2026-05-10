@@ -98,6 +98,7 @@ node --check public/app.js
 - [Deployment Notes](./DEPLOYMENT.md)
 - [Roadmap](./ROADMAP.md)
 - [SaaS Plan](./SAAS_PLAN.md)
+- [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
 
 ## API Notes
@@ -124,6 +125,8 @@ FareScout is public for portfolio review and technical evaluation, but it is not
 The code, name, logo, product concept, and documentation are reserved. Commercial use, redistribution, resale, or hosted copies require prior written permission.
 
 See [LICENSE](./LICENSE) and [SECURITY](./SECURITY.md).
+
+Commercial SaaS logic should live in a private backend. See [COMMERCIALIZATION](./COMMERCIALIZATION.md).
 
 ## Roadmap
 
