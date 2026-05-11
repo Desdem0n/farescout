@@ -32,7 +32,7 @@ Use `https://farescout.onrender.com/promo.html` in a 9:16 browser window.
 ## TikTok / Reels / Shorts Caption
 
 ```text
-I built FareScout to make repeated flight-price checks faster. Search live fares now, then submit the route you want monitored next. Try it: https://farescout.onrender.com #cheapflights #traveltech #flights #buildinpublic #indiehacker
+I built FareScout to make repeated flight-price checks faster. Search live fares now, then submit the route you want monitored next. Try it: https://farescout.onrender.com/?utm_source=tiktok&utm_campaign=global_launch #cheapflights #traveltech #flights #buildinpublic #indiehacker
 ```
 
 ## X Post
@@ -45,7 +45,7 @@ It searches API-backed flight fares, scans the full departure day, and highlight
 US-friendly routes included: NYC -> Miami, LA -> Vegas, Chicago -> NYC, SF -> Seattle.
 
 Try it:
-https://farescout.onrender.com
+https://farescout.onrender.com/?utm_source=x&utm_campaign=global_launch
 
 #traveltech #buildinpublic #indiehackers
 ```
@@ -60,7 +60,7 @@ The app searches API-backed fares through a secure Node proxy, keeps the API key
 The next product step is monitored fare alerts: choose a route, set a target price, and get notified when it becomes worth booking.
 
 Live demo:
-https://farescout.onrender.com
+https://farescout.onrender.com/?utm_source=linkedin&utm_campaign=global_launch
 
 Case study and code:
 https://github.com/Desdem0n/farescout
@@ -75,9 +75,33 @@ I built a small flight-search MVP called FareScout and would value feedback.
 
 It searches live API-backed fares, supports route/provider/cabin/currency filters, and highlights the cheapest returned offer. I am validating whether people want monitored price-drop alerts for specific routes.
 
-Demo: https://farescout.onrender.com
+Demo: https://farescout.onrender.com/?utm_source=reddit&utm_campaign=global_launch
 
 Question: what route would you want an app like this to monitor for you?
+```
+
+## Trackable Launch Links
+
+Use these links so beta leads include `source` and `campaign`:
+
+```text
+TikTok:
+https://farescout.onrender.com/?utm_source=tiktok&utm_campaign=global_launch
+
+X:
+https://farescout.onrender.com/?utm_source=x&utm_campaign=global_launch
+
+Facebook:
+https://farescout.onrender.com/?utm_source=facebook&utm_campaign=global_launch
+
+LinkedIn:
+https://farescout.onrender.com/?utm_source=linkedin&utm_campaign=global_launch
+
+Friends:
+https://farescout.onrender.com/?utm_source=friends&utm_campaign=global_launch
+
+Portfolio:
+https://farescout.onrender.com/?utm_source=portfolio&utm_campaign=global_launch
 ```
 
 ## First 48 Hours
@@ -85,12 +109,15 @@ Question: what route would you want an app like this to monitor for you?
 1. Post LinkedIn build summary.
 2. Post X launch thread.
 3. Record `/promo.html` and publish a short vertical video.
-4. Share portfolio link with recruiters or hiring contacts.
-5. Reply manually to every route suggestion.
-6. Save every request in a simple spreadsheet.
+4. Share the friends link with 10-20 people and ask for one route they would monitor.
+5. Post in Facebook/travel groups only where self-promotion is allowed.
+6. Reply manually to every route suggestion.
+7. Check private `GET /api/admin/leads` for top routes and sources.
 
 ## Lead Spreadsheet Columns
 
 ```text
 date, channel, name_or_handle, email, origin, destination, target_price, country, notes, follow_up_sent
 ```
+
+Once private lead capture is connected, the spreadsheet becomes optional; the private backend stores the same signal.

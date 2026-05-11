@@ -71,7 +71,7 @@ It currently works as a live demo: choose a route, date, airline/provider, cabin
 I am collecting early feedback: which route would you want monitored automatically?
 
 Demo:
-https://farescout.onrender.com
+https://farescout.onrender.com/?utm_source=facebook&utm_campaign=global_launch
 ```
 
 ## TikTok / Reels Caption
@@ -89,6 +89,7 @@ Stop checking the same flight every day. FareScout compares live fares now and i
 5. Post in travel communities only where self-promotion is allowed.
 6. Track replies manually in a simple spreadsheet.
 7. Personally reply to every route request within 24 hours.
+8. Check private `GET /api/admin/leads` for top routes and traffic sources after each posting wave.
 
 ## Do Not Publish
 
@@ -104,3 +105,4 @@ Stop checking the same flight every day. FareScout compares live fares now and i
 - 20+ beta/waitlist inquiries.
 - 5+ specific route-monitoring requests.
 - 2+ people willing to pay for a founder pilot.
+- 1-2 channels that produce repeatable route-alert leads.
