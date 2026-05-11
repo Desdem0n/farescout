@@ -97,6 +97,18 @@ test.describe("FareScout conversion flow", () => {
         body: JSON.stringify(mockedSearchResponse)
       });
     });
+    await page.route("**/api/public/waitlist", async (route) => {
+      await route.fulfill({
+        status: 202,
+        contentType: "application/json",
+        body: JSON.stringify({
+          ok: true,
+          captured: true,
+          fallbackRequired: false,
+          reason: "webhook_delivered"
+        })
+      });
+    });
   });
 
   test("search results lead into a route-alert beta request", async ({ page }) => {
@@ -113,5 +125,10 @@ test.describe("FareScout conversion flow", () => {
     await expect(page.getByLabel(/route to watch/i)).toHaveValue("WAW to LTN under 90 PLN");
     await expect(page.getByLabel(/target price/i)).toHaveValue("90 PLN");
     await expect(page.getByText(/route copied from your latest search/i)).toBeVisible();
+
+    await page.locator('#waitlist-form input[name="email"]').fill("traveler@example.com");
+    await page.getByRole("button", { name: /join alert beta/i }).click();
+
+    await expect(page.getByText(/you're on the beta list/i)).toBeVisible();
   });
 });

@@ -96,8 +96,11 @@ The public demo can eventually call only safe public endpoints such as:
 
 ```text
 POST /api/public/waitlist
+POST /api/public/pilot
 POST /api/public/search
 ```
+
+The current public repository implements safe waitlist and pilot lead relay endpoints. They only forward data to a private webhook when `FARESCOUT_LEADS_WEBHOOK_URL` is configured in the hosting environment.
 
 The private SaaS should expose authenticated endpoints such as:
 

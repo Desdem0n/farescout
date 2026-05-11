@@ -33,7 +33,7 @@ The E2E tests cover:
 - origin and destination country/airport pickers are visible
 - invalid same-airport searches are blocked
 - mocked successful search results show the "Track this route" CTA
-- the CTA pre-fills the fare alerts beta form without calling the live flight API
+- the CTA pre-fills and submits the fare alerts beta form without calling the live flight API
 
 ## Manual Smoke Tests
 
@@ -46,7 +46,8 @@ The E2E tests cover:
 - Search with a return date before departure and confirm validation stops the request.
 - Try a city code such as `LON` and confirm the provider error is readable.
 - Search `WAW -> LTN`, click `Track this route`, and confirm the beta form is pre-filled with route and target price.
-- Fill the fare alerts beta form and confirm it opens a prepared email request.
+- Fill the fare alerts beta form and confirm it shows a saved state when `FARESCOUT_LEADS_WEBHOOK_URL` is configured, or opens a prepared email request when it is not.
+- Fill the founder pilot form and confirm it follows the same lead relay/email fallback behavior.
 - Resize to mobile width and confirm no title, labels, buttons, or cards are clipped.
 
 ## Expected Behaviors

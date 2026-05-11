@@ -158,7 +158,7 @@ For TikTok, X, Facebook, LinkedIn, and friends' socials:
 
 ## Next Action
 
-The next product implementation should be:
+The current product implementation target is:
 
 ```text
 Database-backed beta lead capture for Track this route.
@@ -176,3 +176,11 @@ Minimum fields:
 - created_at
 
 This belongs in the private commercial path, not as public Stripe or alert-worker logic in this demo repo.
+
+Public demo implementation:
+
+- `POST /api/public/waitlist`
+- `POST /api/public/pilot`
+- optional `FARESCOUT_LEADS_WEBHOOK_URL`
+- optional `FARESCOUT_LEADS_WEBHOOK_TOKEN`
+- email fallback if the private lead endpoint is not connected yet

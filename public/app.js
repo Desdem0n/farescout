@@ -246,7 +246,7 @@ destinationCountry.addEventListener("change", () => {
   populateDestinationAirports(destinationCountry.value);
 });
 
-waitlistForm.addEventListener("submit", (event) => {
+waitlistForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(waitlistForm);
   const email = String(data.get("email") || "").trim();
@@ -258,6 +258,8 @@ waitlistForm.addEventListener("submit", (event) => {
     return;
   }
 
+  waitlistNote.textContent = "Saving your route interest...";
+
   const subject = "FareScout alert beta request";
   const body = [
     "Hi, I want to join the FareScout alert beta.",
@@ -265,15 +267,33 @@ waitlistForm.addEventListener("submit", (event) => {
     `Email: ${email}`,
     `Route to watch: ${route}`,
     `Target price: ${targetPrice}`,
+    `Source: ${getLeadSource()}`,
     "",
     "I am interested in price-drop alerts for this route."
   ].join("\n");
+  const lead = await submitLead("/api/public/waitlist", {
+    email,
+    route,
+    targetPrice,
+    origin: form.elements.origin.value,
+    destination: form.elements.destination.value,
+    market: form.elements.market.value,
+    source: getLeadSource(),
+    campaign: getCampaign(),
+    page: window.location.pathname
+  });
 
-  waitlistNote.textContent = getComposeNote(email, "beta request");
+  if (lead.captured) {
+    waitlistNote.textContent = "You're on the beta list. We will use this route to validate monitored fare alerts.";
+    waitlistForm.reset();
+    return;
+  }
+
+  waitlistNote.textContent = `${getComposeNote(email, "beta request")} The backend lead relay is not connected yet.`;
   window.location.href = createComposeUrl(email, subject, body);
 });
 
-pilotForm.addEventListener("submit", (event) => {
+pilotForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(pilotForm);
   const email = String(data.get("email") || "").trim();
@@ -285,6 +305,8 @@ pilotForm.addEventListener("submit", (event) => {
     return;
   }
 
+  pilotNote.textContent = "Saving your pilot request...";
+
   const subject = "FareScout founder pilot request";
   const body = [
     "Hi, I am interested in FareScout founder pilot access.",
@@ -292,13 +314,59 @@ pilotForm.addEventListener("submit", (event) => {
     `Email: ${email}`,
     `Routes to monitor: ${routes}`,
     `Pilot interest: ${budget}`,
+    `Source: ${getLeadSource()}`,
     "",
     "Please send me details about the 30-day monitored route pilot."
   ].join("\n");
+  const lead = await submitLead("/api/public/pilot", {
+    email,
+    routes,
+    budget,
+    source: getLeadSource(),
+    campaign: getCampaign(),
+    page: window.location.pathname
+  });
 
-  pilotNote.textContent = getComposeNote(email, "pilot request");
+  if (lead.captured) {
+    pilotNote.textContent = "Founder pilot request saved. This is exactly the type of signal we need before self-serve billing.";
+    pilotForm.reset();
+    return;
+  }
+
+  pilotNote.textContent = `${getComposeNote(email, "pilot request")} The backend lead relay is not connected yet.`;
   window.location.href = createComposeUrl(email, subject, body);
 });
+
+async function submitLead(endpoint, payload) {
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+      return { captured: false, reason: data.error || "lead_rejected" };
+    }
+
+    return data;
+  } catch {
+    return { captured: false, reason: "lead_capture_unavailable" };
+  }
+}
+
+function getLeadSource() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("utm_source") || params.get("ref") || document.referrer || "direct";
+}
+
+function getCampaign() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("utm_campaign") || params.get("campaign") || "";
+}
 
 function createComposeUrl(senderEmail, subject, body) {
   const recipient = "desmilke@gmail.com";

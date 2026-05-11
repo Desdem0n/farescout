@@ -44,6 +44,16 @@ const server = createServer(async (req, res) => {
       return;
     }
 
+    if (url.pathname === "/api/public/waitlist") {
+      await handleLeadCapture(req, res, "alert_beta");
+      return;
+    }
+
+    if (url.pathname === "/api/public/pilot") {
+      await handleLeadCapture(req, res, "founder_pilot");
+      return;
+    }
+
     await serveStatic(url.pathname, res);
   } catch (error) {
     console.error(error);
@@ -159,6 +169,127 @@ async function handleFlightSearch(url, res) {
   });
 }
 
+async function handleLeadCapture(req, res, type) {
+  if (req.method !== "POST") {
+    sendJson(res, 405, { error: "Method not allowed." });
+    return;
+  }
+
+  let input;
+  try {
+    input = await readJsonBody(req);
+  } catch (error) {
+    sendJson(res, 400, { error: error.message || "Invalid lead payload." });
+    return;
+  }
+  const lead = normalizeLead(input, type, req);
+  const validationError = validateLead(lead);
+
+  if (validationError) {
+    sendJson(res, 400, { error: validationError });
+    return;
+  }
+
+  const delivery = await sendLeadToWebhook(lead);
+
+  sendJson(res, 202, {
+    ok: true,
+    captured: delivery.sent,
+    fallbackRequired: !delivery.sent,
+    reason: delivery.reason
+  });
+}
+
+function readJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 10_000) {
+        reject(new Error("Lead payload is too large."));
+        req.destroy();
+      }
+    });
+
+    req.on("end", () => {
+      try {
+        resolve(body ? JSON.parse(body) : {});
+      } catch {
+        reject(new Error("Invalid JSON payload."));
+      }
+    });
+
+    req.on("error", reject);
+  });
+}
+
+function normalizeLead(input, type, req) {
+  return {
+    type,
+    email: normalizeText(input.email, 160).toLowerCase(),
+    route: normalizeText(input.route || input.routes, 220),
+    targetPrice: normalizeText(input.targetPrice || input.budget, 120),
+    origin: normalizeAirportCode(input.origin),
+    destination: normalizeAirportCode(input.destination),
+    market: normalizeMarket(input.market || ""),
+    source: normalizeText(input.source, 220),
+    campaign: normalizeText(input.campaign, 120),
+    page: normalizeText(input.page, 220),
+    createdAt: new Date().toISOString(),
+    userAgent: normalizeText(req.headers["user-agent"], 260),
+    referrer: normalizeText(req.headers.referer, 260)
+  };
+}
+
+function validateLead(lead) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+    return "Add a valid email address.";
+  }
+
+  if (lead.route.length < 5) {
+    return "Add the route you want watched.";
+  }
+
+  if (lead.targetPrice.length < 2) {
+    return "Add your target price or pilot interest.";
+  }
+
+  return "";
+}
+
+async function sendLeadToWebhook(lead) {
+  const webhookUrl = process.env.FARESCOUT_LEADS_WEBHOOK_URL;
+  if (!webhookUrl) {
+    return { sent: false, reason: "webhook_not_configured" };
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+    "User-Agent": "FareScout lead relay"
+  };
+
+  if (process.env.FARESCOUT_LEADS_WEBHOOK_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.FARESCOUT_LEADS_WEBHOOK_TOKEN}`;
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(lead)
+    });
+
+    if (!response.ok) {
+      return { sent: false, reason: "webhook_rejected" };
+    }
+
+    return { sent: true, reason: "webhook_delivered" };
+  } catch {
+    return { sent: false, reason: "webhook_unavailable" };
+  }
+}
+
 function normalizeOffer(offer) {
   const itineraries = [offer.outbound, offer.inbound]
     .filter(Boolean)
@@ -241,6 +372,10 @@ function loadDotEnv() {
 
 function normalizeAirportCode(value) {
   return String(value || "").trim().toUpperCase().slice(0, 3);
+}
+
+function normalizeText(value, maxLength) {
+  return String(value || "").trim().replace(/\s+/g, " ").slice(0, maxLength);
 }
 
 function normalizeMarket(value) {

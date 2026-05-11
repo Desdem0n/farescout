@@ -32,8 +32,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Advanced filters keep currency, provider, cabin class, and nonstop controls available without crowding the first screen.
 - Clear cheapest-fare highlight without hiding other returned prices.
 - Search-result CTA that turns a fare search into a prefilled route-alert beta request.
-- Beta waitlist form for future monitored price alerts.
-- Founder pilot inquiry form for early commercial validation without public billing logic.
+- Backend lead relay for beta waitlist and founder pilot requests, with safe email fallback when the private webhook is not configured.
 - Share-ready promo reel page at `/promo.html` for short launch videos.
 - Mobile-first responsive layout.
 - Dependency-free runtime: only Node built-ins are used.
@@ -69,6 +68,8 @@ The API key stays on the backend and is never sent to the browser.
 IGNAV_API_KEY=your_ignav_api_key
 IGNAV_BASE_URL=https://ignav.com/api
 PORT=4000
+FARESCOUT_LEADS_WEBHOOK_URL=
+FARESCOUT_LEADS_WEBHOOK_TOKEN=
 ```
 
 ## Run
@@ -128,6 +129,7 @@ node --check public/app.js
 - Currency is selected through Ignav's `market` parameter. For example, `PL` returns Polish-market fares in PLN.
 - Provider filtering uses Ignav's `airlines_include` parameter, then the backend recalculates the cheapest returned fare.
 - The backend sends a local departure-time range from hour `0` through hour `23`, and the UI presents that as a full-day search from `00:00` to `23:59`.
+- `POST /api/public/waitlist` and `POST /api/public/pilot` relay beta/pilot interest to `FARESCOUT_LEADS_WEBHOOK_URL` when configured, without exposing the private destination to the browser.
 
 ## What This Project Demonstrates
 
