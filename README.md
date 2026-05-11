@@ -89,7 +89,15 @@ http://localhost:4000
 npm run check
 ```
 
-If `npm` is unavailable, run the checks directly:
+Run browser-level product flow tests:
+
+```bash
+npm install
+npx playwright install chromium
+npm run test:e2e
+```
+
+If `npm` is unavailable, run the syntax checks directly:
 
 ```bash
 node --check server.js
