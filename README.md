@@ -22,7 +22,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 ## Features
 
 - Live fare search through the Ignav API.
-- Global-friendly airport search with country-based destination selection and Warsaw as the default demo origin.
+- Global-friendly airport search with country-based origin and destination selection, with Warsaw as the default demo origin.
 - Support for high-interest international and United States domestic routes through airport selection.
 - Airport search by real three-letter IATA airport codes.
 - Full-day departure search, displayed as `00:00` through `23:59`.
@@ -31,6 +31,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Flight class selection: economy, premium economy, business, and first.
 - Advanced filters keep currency, provider, cabin class, and nonstop controls available without crowding the first screen.
 - Clear cheapest-fare highlight without hiding other returned prices.
+- Search-result CTA that turns a fare search into a prefilled route-alert beta request.
 - Beta waitlist form for future monitored price alerts.
 - Founder pilot inquiry form for early commercial validation without public billing logic.
 - Share-ready promo reel page at `/promo.html` for short launch videos.

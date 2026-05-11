@@ -2,7 +2,7 @@
 
 ## Overview
 
-FareScout is a live flight fare finder focused on helping users quickly compare fares, identify the cheapest option, and filter by route, provider, class, and currency.
+FareScout is a live flight fare finder focused on helping users quickly compare fares, identify the cheapest option, and move from a one-time search toward monitored route alerts.
 
 The current version is a portfolio-grade MVP. A future SaaS version could add user accounts, saved searches, price alerts, background monitoring, and subscriptions. The SaaS direction is documented in [SAAS_PLAN.md](./SAAS_PLAN.md).
 
@@ -24,7 +24,8 @@ For a technical portfolio, the project also needs to show practical product judg
 - Search live flight fares through a real API.
 - Keep API credentials secure on the backend.
 - Make route selection intuitive through country and airport pickers.
-- Provide quick presets for common Warsaw routes so first-time users can search faster.
+- Make both origin and destination selection usable through country and airport pickers.
+- Use search results to encourage the next product action: joining the monitored-alert beta.
 - Show all returned prices while clearly marking the cheapest fare.
 - Support airline/provider, flight class, currency/market, nonstop, and date filters.
 - Provide a clean mobile-first interface.
@@ -41,10 +42,11 @@ For a technical portfolio, the project also needs to show practical product judg
 ## User Stories
 
 - As a traveler, I want to search flights from Warsaw to London Luton so I can find the cheapest Wizz Air fare.
-- As a traveler, I want to choose the destination country first so I can find relevant cities and airports faster.
+- As a traveler, I want to choose the origin and destination country first so I can find relevant airports faster.
 - As a traveler, I want to filter by provider so I can compare only airlines I prefer.
 - As a traveler, I want to search economy, premium economy, business, or first class.
 - As a traveler, I want to see all returned fares, not only the cheapest one.
+- As a traveler, I want to save interest in a route alert after seeing a fare so I can stop checking the same route manually.
 - As a reviewer, I want clear setup instructions so I can run the project locally.
 
 ## Functional Requirements
@@ -54,6 +56,7 @@ For a technical portfolio, the project also needs to show practical product judg
 - The browser must never receive the API key.
 - The UI must allow users to choose:
   - origin airport
+  - origin country
   - destination country
   - destination airport
   - departure date
@@ -63,10 +66,11 @@ For a technical portfolio, the project also needs to show practical product judg
   - airline/provider
   - cabin class
   - nonstop preference
-- The UI must provide quick route presets for common Warsaw departures.
 - The app must sort returned fares by total price ascending.
 - The app must highlight only the cheapest returned fare.
 - The app must show all returned fares.
+- The app must show a route-alert CTA after successful search results.
+- The alert CTA must prefill the beta form with the searched route and a target price suggestion.
 - The app must display meaningful provider/API errors.
 - The app must validate obvious form mistakes before calling the API.
 
@@ -78,6 +82,7 @@ For a technical portfolio, the project also needs to show practical product judg
 - Cheapest fare should be visually distinct without hiding other results.
 - Results should remain scannable on desktop and mobile.
 - Labels must be clear and nontechnical where possible.
+- Conversion prompts should be contextual and appear after the user sees value, not before the first search.
 
 ## Technical Requirements
 
@@ -105,7 +110,7 @@ For a technical portfolio, the project also needs to show practical product judg
 ## SaaS Roadmap
 
 - Public deployment.
-- Beta waitlist for fare alerts.
+- Beta waitlist for fare alerts with route prefill from search results.
 - User authentication.
 - Saved searches.
 - Saved fare alerts with target prices.

@@ -359,7 +359,8 @@ function renderOffers(payload) {
   statusLabel.textContent = `${payload.count} offers found${payload.providerFilter && payload.providerFilter !== "ALL" ? ` · ${payload.providerFilter}` : ""}`;
   resultTitle.textContent = `Cheapest fare: ${payload.cheapest.price.formatted}`;
   const windowNote = createSearchWindowNote(payload.searchWindow);
-  results.replaceChildren(...payload.offers.map(createOfferCard));
+  const alertCta = createAlertCta(payload);
+  results.replaceChildren(...payload.offers.map(createOfferCard), alertCta);
   if (windowNote) {
     results.prepend(windowNote);
   }
@@ -432,6 +433,34 @@ function createSearchWindowNote(searchWindow) {
   note.className = "search-window";
   note.textContent = `Searching all departures from ${searchWindow.startLocal} to ${searchWindow.displayEndLocal}`;
   return note;
+}
+
+function createAlertCta(payload) {
+  const origin = form.elements.origin.value;
+  const destination = form.elements.destination.value;
+  const cheapest = payload.cheapest;
+  const targetPrice = Math.max(Math.floor(cheapest.price.total * 0.9), 1);
+  const routeText = `${origin} to ${destination} under ${targetPrice} ${cheapest.price.currency}`;
+  const card = document.createElement("aside");
+  card.className = "conversion-card";
+  card.innerHTML = `
+    <div>
+      <p>Turn this search into an alert</p>
+      <h3>Want FareScout to watch ${escapeHtml(origin)} to ${escapeHtml(destination)} for you?</h3>
+      <span>Join the beta and tell us your target price. This is the first step toward monitored routes, not just one-time searches.</span>
+    </div>
+    <button type="button">Track this route</button>
+  `;
+
+  card.querySelector("button").addEventListener("click", () => {
+    waitlistForm.elements.route.value = routeText;
+    waitlistForm.elements.targetPrice.value = `${targetPrice} ${cheapest.price.currency}`;
+    waitlistNote.textContent = "Route copied from your latest search. Add your email to join the alert beta.";
+    waitlistForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    waitlistForm.elements.email.focus({ preventScroll: true });
+  });
+
+  return card;
 }
 
 function validateSearch(data) {
