@@ -113,6 +113,7 @@ node --check public/app.js
 - [Roadmap](./ROADMAP.md)
 - [SaaS Plan](./SAAS_PLAN.md)
 - [SaaS Migration Blueprint](./docs/SAAS_MIGRATION_BLUEPRINT.md)
+- [Growth Skills Playbook](./docs/GROWTH_SKILLS_PLAYBOOK.md)
 - [Paid Pilot Plan](./PILOT_SALES.md)
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [Global Launch Playbook](./docs/GLOBAL_LAUNCH.md)
