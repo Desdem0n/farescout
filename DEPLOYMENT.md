@@ -110,6 +110,18 @@ Then manually test:
 - beta waitlist lead relay returns `captured: true`
 - founder pilot lead relay returns `captured: true`
 - `/api/public/founder-pilot-payment` returns whether paid pilot reservations are configured
+- `/success.html` and `/cancel.html` render correctly for Stripe Payment Link redirects
+
+## Stripe Payment Link Redirects
+
+When creating the Founder Pilot Payment Link in Stripe, use:
+
+```text
+Success URL: https://farescout.onrender.com/success.html
+Cancel URL: https://farescout.onrender.com/cancel.html
+```
+
+The success page asks for the route details needed to set up the manual monitored-route pilot and sends them to the private lead cockpit.
 
 ## Updating The Live Demo
 

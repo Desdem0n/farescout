@@ -802,6 +802,107 @@ button:disabled {
   color: rgba(255, 255, 255, 0.66);
 }
 
+.checkout-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(22, 108, 107, 0.22), transparent 32rem),
+    radial-gradient(circle at 80% 14%, rgba(209, 79, 42, 0.16), transparent 28rem),
+    var(--paper);
+}
+
+.checkout-shell {
+  width: min(760px, calc(100% - 24px));
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 24px 0;
+}
+
+.checkout-card {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  padding: clamp(22px, 6vw, 42px);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(217, 222, 229, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(21, 23, 26, 0.12);
+}
+
+.checkout-logo {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(22, 108, 107, 0.22);
+}
+
+.checkout-card p {
+  margin: 0;
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.checkout-card h1 {
+  max-width: 12ch;
+  font-size: clamp(2.25rem, 9vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.checkout-card span,
+.checkout-card small {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.checkout-form {
+  display: grid;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.checkout-form input {
+  text-transform: none;
+}
+
+.checkout-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.checkout-actions a,
+.checkout-link {
+  display: grid;
+  min-height: 50px;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border-radius: 6px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.checkout-link {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.checkout-actions .secondary-link {
+  color: var(--accent-strong);
+  background: #fff;
+  border: 1px solid rgba(22, 108, 107, 0.18);
+}
+
+.checkout-actions a:hover,
+.checkout-link:hover {
+  color: #fff;
+  background: var(--warm);
+}
+
 @keyframes float-card {
   0%,
   100% {
@@ -871,6 +972,10 @@ button:disabled {
   .pricing-actions {
     grid-template-columns: minmax(0, 1fr) minmax(128px, auto);
     align-items: center;
+  }
+
+  .checkout-actions {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, auto);
   }
 
   .offer-card {

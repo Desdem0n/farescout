@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" class="notranslate" translate="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FareScout Founder Pilot reservation confirmed. Send your route details so FareScout can prepare monitored fare alerts.">
+    <meta name="theme-color" content="#166c6b">
+    <title>FareScout Founder Pilot Reserved</title>
+    <link rel="icon" type="image/png" href="/assets/farescout-logo.png">
+    <link rel="apple-touch-icon" href="/assets/farescout-logo.png">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="checkout-body">
+    <main class="checkout-shell">
+      <section class="checkout-card success-card" aria-labelledby="success-title">
+        <img class="checkout-logo" src="/assets/farescout-logo.png" alt="FareScout logo">
+        <p>Founder pilot reserved</p>
+        <h1 id="success-title">You are in. Now tell us what route to watch.</h1>
+        <span>FareScout will use your route details to prepare the monitored-route pilot and follow up with the next setup step.</span>
+
+        <form id="success-route-form" class="checkout-form">
+          <label>
+            Email used at checkout
+            <input name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label>
+            Route to monitor
+            <input name="routes" placeholder="WAW to LTN, JFK to MIA" required>
+          </label>
+          <label>
+            Target price or goal
+            <input name="budget" placeholder="Under $120, flexible weekends, business class alerts" required>
+          </label>
+          <button type="submit">Send pilot setup details</button>
+          <small id="success-note">This creates a founder-pilot lead in the private FareScout cockpit.</small>
+        </form>
+
+        <a class="checkout-link" href="/">Back to live search</a>
+      </section>
+    </main>
+    <script src="/success.js" type="module"></script>
+  </body>
+</html>
