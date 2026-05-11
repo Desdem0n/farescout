@@ -279,3 +279,19 @@ Before a framework migration, collect real demand:
 4. Record route, target price, email, and source.
 5. Follow up manually with interested users.
 6. Start the private Next.js shell once the beta lead flow proves useful.
+
+## Current Private Backend Status
+
+The private `farescout-commercial` repository now owns the first lead-capture destination:
+
+- Render blueprint for the private web service and Postgres database.
+- Migration runner for `db/migrations`.
+- `beta_leads` table.
+- token-protected `POST /api/public/leads`.
+
+Public `farescout` should point:
+
+```env
+FARESCOUT_LEADS_WEBHOOK_URL=https://YOUR_PRIVATE_BACKEND/api/public/leads
+FARESCOUT_LEADS_WEBHOOK_TOKEN=the_same_value_as_PUBLIC_LEAD_TOKEN
+```
