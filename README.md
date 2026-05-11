@@ -119,6 +119,7 @@ node --check public/app.js
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [Global Launch Playbook](./docs/GLOBAL_LAUNCH.md)
 - [Social Launch Kit](./docs/SOCIAL_LAUNCH_KIT.md)
+- [7-Day Promotion Campaign](./docs/FARESCOUT_7_DAY_CAMPAIGN.md)
 - [GitHub Repository Setup](./docs/GITHUB_REPO_SETUP.md)
 - [Post-Deploy Launch Checklist](./docs/POST_DEPLOY_LAUNCH.md)
 - [GitHub Profile README Draft](./docs/GITHUB_PROFILE_README.md)
