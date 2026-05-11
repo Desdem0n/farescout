@@ -123,7 +123,10 @@ Scope:
 
 - Supabase project
 - `beta_leads` table
-- `POST /api/public/waitlist`
+- private `POST /api/public/leads`
+- public relay endpoints:
+  - `POST /api/public/waitlist`
+  - `POST /api/public/pilot`
 - route, target price, email, country, and source tracking
 - basic spam/rate limiting
 - PostHog events:

@@ -51,6 +51,8 @@ Set these in the hosting provider:
 IGNAV_API_KEY=your_ignav_api_key
 IGNAV_BASE_URL=https://ignav.com/api
 PORT=4000
+FARESCOUT_LEADS_WEBHOOK_URL=https://your-private-commercial-backend.example.com/api/public/leads
+FARESCOUT_LEADS_WEBHOOK_TOKEN=the_same_value_as_PUBLIC_LEAD_TOKEN_in_farescout_commercial
 ```
 
 Some hosts provide `PORT` automatically. In that case, keep the app code as-is and only set:
@@ -59,6 +61,8 @@ Some hosts provide `PORT` automatically. In that case, keep the app code as-is a
 IGNAV_API_KEY=your_ignav_api_key
 IGNAV_BASE_URL=https://ignav.com/api
 ```
+
+Lead capture variables are optional. When they are configured, beta waitlist and founder pilot requests are relayed to the private commercial backend. When they are not configured, the public demo keeps the safe email fallback.
 
 ## Start Command
 
@@ -98,7 +102,7 @@ Then manually test:
 
 - `/api/health`
 - `WAW -> LTN`, Wizz Air, PLN
-- beta waitlist email handoff
+- beta waitlist lead relay, or email fallback when the private webhook is not configured
 
 ## Updating The Live Demo
 
