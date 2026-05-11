@@ -112,6 +112,7 @@ node --check public/app.js
 - [Deployment Notes](./DEPLOYMENT.md)
 - [Roadmap](./ROADMAP.md)
 - [SaaS Plan](./SAAS_PLAN.md)
+- [SaaS Migration Blueprint](./docs/SAAS_MIGRATION_BLUEPRINT.md)
 - [Paid Pilot Plan](./PILOT_SALES.md)
 - [Commercialization Boundary](./COMMERCIALIZATION.md)
 - [Global Launch Playbook](./docs/GLOBAL_LAUNCH.md)

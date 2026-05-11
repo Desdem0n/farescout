@@ -76,13 +76,19 @@ The private backend should own:
 
 ## Suggested Private Stack
 
-- Node.js
-- PostgreSQL
-- Prisma or plain SQL migrations
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Supabase Auth
+- Supabase Postgres
+- Prisma or plain SQL migrations if Supabase migrations are not enough
 - Stripe
 - Resend or Postmark
+- PostHog
 - Render/Railway/Fly.io worker service
-- Hosted auth provider or magic-link auth
+
+The migration sequence is documented in [docs/SAAS_MIGRATION_BLUEPRINT.md](./docs/SAAS_MIGRATION_BLUEPRINT.md).
 
 ## Public-to-Private API Boundary
 

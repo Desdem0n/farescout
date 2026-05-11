@@ -161,6 +161,8 @@ Recommended first SaaS stack:
 
 Commercial implementation should be split from this public demo repository. The private backend boundary is documented in [COMMERCIALIZATION.md](./COMMERCIALIZATION.md).
 
+The recommended framework migration path is documented in [docs/SAAS_MIGRATION_BLUEPRINT.md](./docs/SAAS_MIGRATION_BLUEPRINT.md). In short: keep this public repository as the working demo and build the Next.js/Supabase/Stripe SaaS layer in the private commercial repository after demand is validated.
+
 ## API Cost Controls
 
 Flight APIs can become expensive or rate-limited. FareScout needs cost control before public SaaS launch:
@@ -256,11 +258,12 @@ Feature blocks:
 
 ## First Engineering Step
 
-The next engineering step should be deployment, not billing.
+The next engineering step should be demand capture, not billing or a full rewrite.
 
 Recommended immediate task:
 
-1. Deploy FareScout on Render or Railway.
-2. Set `IGNAV_API_KEY` as a private environment variable.
-3. Add the public URL to README and portfolio.
-4. Add a simple waitlist CTA to validate alert demand.
+1. Keep the Render demo stable.
+2. Use the search-result "Track this route" CTA to collect alert interest.
+3. Track which routes, target prices, and traffic sources produce intent.
+4. Move lead capture from email handoff to a private database endpoint.
+5. Start the private Next.js/Supabase shell only after the route-alert flow proves useful.
