@@ -54,6 +54,19 @@ const server = createServer(async (req, res) => {
       return;
     }
 
+    if (url.pathname === "/api/public/founder-pilot-payment") {
+      if (req.method !== "GET") {
+        sendJson(res, 405, { error: "Method not allowed." });
+        return;
+      }
+      const paymentUrl = normalizePaymentUrl(process.env.FOUNDER_PILOT_PAYMENT_URL);
+      sendJson(res, 200, {
+        configured: Boolean(paymentUrl),
+        url: paymentUrl
+      });
+      return;
+    }
+
     await serveStatic(url.pathname, res);
   } catch (error) {
     console.error(error);
@@ -390,6 +403,18 @@ function normalizeCabinClass(value) {
   const normalized = String(value || "economy").trim().toLowerCase();
   const allowed = new Set(["economy", "premium_economy", "business", "first"]);
   return allowed.has(normalized) ? normalized : "economy";
+}
+
+function normalizePaymentUrl(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const url = new URL(raw);
+    return url.protocol === "https:" ? url.toString() : "";
+  } catch {
+    return "";
+  }
 }
 
 function createSearchWindow(dateValue) {

@@ -53,6 +53,7 @@ IGNAV_BASE_URL=https://ignav.com/api
 PORT=4000
 FARESCOUT_LEADS_WEBHOOK_URL=https://your-private-commercial-backend.example.com/api/public/leads
 FARESCOUT_LEADS_WEBHOOK_TOKEN=the_same_value_as_PUBLIC_LEAD_TOKEN_in_farescout_commercial
+FOUNDER_PILOT_PAYMENT_URL=https://buy.stripe.com/your-founder-pilot-payment-link
 ```
 
 Some hosts provide `PORT` automatically. In that case, keep the app code as-is and only set:
@@ -65,6 +66,8 @@ IGNAV_BASE_URL=https://ignav.com/api
 Lead capture variables are optional. When they are configured, beta waitlist and founder pilot requests are relayed to the private commercial backend. When they are not configured, the public demo keeps the safe email fallback.
 
 Live Render status: lead capture is configured to relay public beta and pilot requests into the private `farescout-commercial` backend. Do not commit these values to GitHub; keep the webhook token only in Render environment variables.
+
+`FOUNDER_PILOT_PAYMENT_URL` is optional and safe to expose because payment links are public checkout URLs. Keep it in Render environment variables so the public UI can show a paid Founder Pilot reservation without hard-coding payment links in the repository.
 
 ## Start Command
 
@@ -106,6 +109,7 @@ Then manually test:
 - `WAW -> LTN`, Wizz Air, PLN
 - beta waitlist lead relay returns `captured: true`
 - founder pilot lead relay returns `captured: true`
+- `/api/public/founder-pilot-payment` returns whether paid pilot reservations are configured
 
 ## Updating The Live Demo
 

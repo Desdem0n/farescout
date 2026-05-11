@@ -10,6 +10,9 @@ const waitlistForm = document.querySelector("#waitlist-form");
 const waitlistNote = document.querySelector("#waitlist-note");
 const pilotForm = document.querySelector("#pilot-form");
 const pilotNote = document.querySelector("#pilot-note");
+const reservePilotButton = document.querySelector("#reserve-pilot");
+const paymentNote = document.querySelector("#payment-note");
+let founderPilotPaymentUrl = "";
 
 const airportsByCountry = {
   PL: {
@@ -185,6 +188,7 @@ populateOriginAirports("PL", "WAW");
 populateDestinationAirports("GB", "LHR");
 setDefaultDate();
 applyUrlSearchParams();
+loadFounderPilotPayment();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -328,13 +332,24 @@ pilotForm.addEventListener("submit", async (event) => {
   });
 
   if (lead.captured) {
-    pilotNote.textContent = "Founder pilot request saved. This is exactly the type of signal we need before self-serve billing.";
+    showPilotCaptured();
     pilotForm.reset();
     return;
   }
 
   pilotNote.textContent = `${getComposeNote(email, "pilot request")} The backend lead relay is not connected yet.`;
   window.location.href = createComposeUrl(email, subject, body);
+});
+
+reservePilotButton.addEventListener("click", () => {
+  if (founderPilotPaymentUrl) {
+    window.location.href = founderPilotPaymentUrl;
+    return;
+  }
+
+  pilotNote.textContent = "Founder checkout is not connected yet. Request pilot access and we will send the reservation link manually.";
+  pilotForm.scrollIntoView({ behavior: "smooth", block: "center" });
+  pilotForm.elements.email.focus({ preventScroll: true });
 });
 
 async function submitLead(endpoint, payload) {
@@ -356,6 +371,34 @@ async function submitLead(endpoint, payload) {
   } catch {
     return { captured: false, reason: "lead_capture_unavailable" };
   }
+}
+
+async function loadFounderPilotPayment() {
+  try {
+    const response = await fetch("/api/public/founder-pilot-payment");
+    const data = await response.json();
+
+    if (response.ok && data.configured && data.url) {
+      founderPilotPaymentUrl = data.url;
+      reservePilotButton.textContent = "Reserve founder spot";
+      paymentNote.textContent = "Secure checkout opens in the next step. We still collect your route details for setup.";
+      return;
+    }
+  } catch {
+    // Keep the manual pilot request fallback.
+  }
+
+  reservePilotButton.textContent = "Request founder spot";
+  paymentNote.textContent = "Checkout is not connected yet. Request access and we will send the reservation link manually.";
+}
+
+function showPilotCaptured() {
+  if (founderPilotPaymentUrl) {
+    pilotNote.innerHTML = `Founder pilot request saved. <a href="${escapeHtml(founderPilotPaymentUrl)}">Reserve your paid spot now</a>.`;
+    return;
+  }
+
+  pilotNote.textContent = "Founder pilot request saved. We will send the reservation link manually.";
 }
 
 function getLeadSource() {
