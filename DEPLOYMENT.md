@@ -64,6 +64,8 @@ IGNAV_BASE_URL=https://ignav.com/api
 
 Lead capture variables are optional. When they are configured, beta waitlist and founder pilot requests are relayed to the private commercial backend. When they are not configured, the public demo keeps the safe email fallback.
 
+Live Render status: lead capture is configured to relay public beta and pilot requests into the private `farescout-commercial` backend. Do not commit these values to GitHub; keep the webhook token only in Render environment variables.
+
 ## Start Command
 
 ```bash
@@ -102,7 +104,8 @@ Then manually test:
 
 - `/api/health`
 - `WAW -> LTN`, Wizz Air, PLN
-- beta waitlist lead relay, or email fallback when the private webhook is not configured
+- beta waitlist lead relay returns `captured: true`
+- founder pilot lead relay returns `captured: true`
 
 ## Updating The Live Demo
 
