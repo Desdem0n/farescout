@@ -33,6 +33,9 @@ https://farescout.onrender.com/?utm_source=friends&utm_campaign=founder_pilot
 
 Promo reel:
 https://farescout.onrender.com/promo.html
+
+Day 1 TikTok/Reels animation:
+https://farescout.onrender.com/tiktok-day1.html
 ```
 
 ## Posting Checklist
@@ -83,6 +86,8 @@ https://farescout.onrender.com/?utm_source=facebook&utm_campaign=route_challenge
 ```
 
 ### TikTok / Reels Script
+
+Use `https://farescout.onrender.com/tiktok-day1.html` as the vertical animated screen-recording page.
 
 ```text
 0-3s: "Drop your route. I will scout 10 of them."

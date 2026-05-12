@@ -8,8 +8,8 @@ Use this file as the lightweight operating log for organic launch posts. Update 
 
 | Channel | Status | Link | UTM | Comments/DMs | Beta Leads | Pilot Leads | Notes |
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
-| X | Draft ready |  | `utm_source=x&utm_campaign=route_challenge` | 0 | 0 | 0 | Ask for route + target price. |
-| Facebook | Draft ready |  | `utm_source=facebook&utm_campaign=route_challenge` | 0 | 0 | 0 | Use only where self-promotion is allowed. |
+| X | Published | X post by @desmilke, 2026-05-12 | `utm_source=x&utm_campaign=route_challenge` | 0 | 0 | 0 | Main Route Challenge post and example-route reply published. |
+| Facebook | Pending approval | Polish group post, 2026-05-12 | `utm_source=facebook&utm_campaign=route_challenge` | 0 | 0 | 0 | Waiting for admin approval in the group. |
 | TikTok/Reels | Script ready |  | `utm_source=tiktok&utm_campaign=route_challenge` | 0 | 0 | 0 | Record `/promo.html` or live app screen. |
 | Friends | Draft ready |  | `utm_source=friends&utm_campaign=route_challenge` | 0 | 0 | 0 | Send to 10-20 people and ask for one route. |
 

@@ -34,6 +34,7 @@ I built it as a portfolio-ready product slice: mobile-first UI, lightweight Node
 - Search-result CTA that turns a fare search into a prefilled route-alert beta request.
 - Backend lead relay for beta waitlist and founder pilot requests, with safe email fallback when the private webhook is not configured.
 - Share-ready promo reel page at `/promo.html` for short launch videos.
+- Day 1 route-challenge animation at `/tiktok-day1.html` for TikTok/Reels screen recording.
 - Mobile-first responsive layout.
 - Dependency-free runtime: only Node built-ins are used.
 
