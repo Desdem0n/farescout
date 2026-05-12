@@ -10,7 +10,7 @@ Use this file as the lightweight operating log for organic launch posts. Update 
 | --- | --- | --- | --- | ---: | ---: | ---: | --- |
 | X | Published | X post by @desmilke, 2026-05-12 | `utm_source=x&utm_campaign=route_challenge` | 0 | 0 | 0 | Main Route Challenge post and example-route reply published. |
 | Facebook | Pending approval | Polish group post, 2026-05-12 | `utm_source=facebook&utm_campaign=route_challenge` | 0 | 0 | 0 | Waiting for admin approval in the group. |
-| TikTok/Reels | Asset ready | Local MP4: `campaign-assets/tiktok-day1-route-challenge.mp4` | `utm_source=tiktok&utm_campaign=route_challenge` | 0 | 0 | 0 | Upload the 1080x1920 MP4 and paste the prepared caption. |
+| TikTok/Reels | Asset ready | Local MP4: `campaign-assets/tiktok-day1-route-challenge-fixed.mp4` | `utm_source=tiktok&utm_campaign=route_challenge` | 0 | 0 | 0 | Upload the full-screen 1080x1920 MP4 and paste the prepared caption. |
 | Friends | Draft ready |  | `utm_source=friends&utm_campaign=route_challenge` | 0 | 0 | 0 | Send to 10-20 people and ask for one route. |
 
 ## Route Ideas Collected
